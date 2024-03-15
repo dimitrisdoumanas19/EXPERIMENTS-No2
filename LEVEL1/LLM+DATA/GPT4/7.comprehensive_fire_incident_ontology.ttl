@@ -1,0 +1,64 @@
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:Area a rdfs:Class .
+
+ex:Equipment a rdfs:Class .
+
+ex:FireCause a rdfs:Class .
+
+ex:FireEvent a rdfs:Class .
+
+ex:FireImpact a rdfs:Class .
+
+ex:FireStation a rdfs:Class .
+
+ex:FireSuppressionMethod a rdfs:Class .
+
+ex:Personnel a rdfs:Class .
+
+ex:RescueOperation a rdfs:Class .
+
+ex:Vehicle a rdfs:Class .
+
+ex:areaSize a rdf:Property .
+
+ex:assignedToVehicle a rdf:Property .
+
+ex:coordinatesWith a rdf:Property .
+
+ex:equipmentCapacity a rdf:Property .
+
+ex:eventDuration a rdf:Property .
+
+ex:eventTime a rdf:Property .
+
+ex:fireSeverity a rdf:Property .
+
+ex:hasCause a rdf:Property .
+
+ex:locatedInArea a rdf:Property .
+
+ex:managesArea a rdf:Property .
+
+ex:numberofCasualties a rdf:Property .
+
+ex:numberofVehicles a rdf:Property .
+
+ex:operatesEquipment a rdf:Property .
+
+ex:operationCost a rdf:Property .
+
+ex:partOfOperation a rdf:Property .
+
+ex:personnelCount a rdf:Property .
+
+ex:responseTime a rdf:Property .
+
+ex:stationedAt a rdf:Property .
+
+ex:supportsOperation a rdf:Property .
+
+ex:usesMethod a rdf:Property .
+

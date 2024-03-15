@@ -1,0 +1,109 @@
+@prefix ex: <http://example.org/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AreaAffected a rdfs:Class .
+
+ex:AreaType a rdfs:Class .
+
+ex:CauseOfFire a rdfs:Class .
+
+ex:Disaster a rdfs:Class .
+
+ex:Equipment a rdfs:Class .
+
+ex:EquipmentType a rdfs:Class .
+
+ex:FireCharacteristic a rdfs:Class .
+
+ex:FireEvent a rdfs:Class .
+
+ex:FireImpact a rdfs:Class .
+
+ex:FireSuppressionMethod a rdfs:Class .
+
+ex:Location a rdfs:Class .
+
+ex:Personnel a rdfs:Class .
+
+ex:PersonnelType a rdfs:Class .
+
+ex:Vehicle a rdfs:Class .
+
+geo:Point a rdfs:Class .
+
+ex:FireEvent1234 a ex:FireEvent ;
+    ex:affectsArea "100 acres"^^xsd:string ;
+    ex:employsMethod "Water and Foam"^^xsd:string ;
+    ex:hasCharacteristic "Forest Fire"^^xsd:string ;
+    ex:hasLocation "LocationXYZ"^^xsd:string ;
+    ex:involvedPersonnel "50 firefighters"^^xsd:string ;
+    ex:locatedIn ex:Location123 ;
+    ex:usesEquipment "5 firetrucks"^^xsd:string .
+
+ex:FireEvent5678 a ex:FireEvent ;
+    ex:affectsArea "200 acres"^^xsd:string ;
+    ex:employsMethod "Chemical retardants"^^xsd:string ;
+    ex:hasCharacteristic "Hill Fire"^^xsd:string ;
+    ex:hasLocation "LocationABC"^^xsd:string ;
+    ex:involvedPersonnel "100 firefighters"^^xsd:string ;
+    ex:usesEquipment "10 firetrucks"^^xsd:string .
+
+ex:affectsArea a rdf:Property .
+
+ex:capacityOfEquipment a rdf:Property .
+
+ex:causedBy a rdf:Property .
+
+ex:dateOfEvent a rdf:Property .
+
+ex:durationOfEvent a rdf:Property .
+
+ex:employsMethod a rdf:Property .
+
+ex:hasCause a rdf:Property .
+
+ex:hasCharacteristic a rdf:Property .
+
+ex:hasEquipmentType a rdf:Property .
+
+ex:hasImpact a rdf:Property .
+
+ex:hasLocation a rdf:Property .
+
+ex:hasPersonnelType a rdf:Property .
+
+ex:hasVehicleType a rdf:Property .
+
+ex:involvedPersonnel a rdf:Property .
+
+ex:locatedIn a rdf:Property .
+
+ex:locationCoordinates a rdf:Property .
+
+ex:numberOfPersonnel a rdf:Property .
+
+ex:ofType a rdf:Property .
+
+ex:operatesEquipment a rdf:Property .
+
+ex:severityOfFire a rdf:Property .
+
+ex:sizeOfAreaAffected a rdf:Property .
+
+ex:timeOfEvent a rdf:Property .
+
+ex:usedInArea a rdf:Property .
+
+ex:usesEquipment a rdf:Property .
+
+geo:lat a rdf:Property .
+
+geo:long a rdf:Property .
+
+ex:Location123 a geo:Point ;
+    geo:lat 40.7128 ;
+    geo:long -74.0060 .
+

@@ -1,0 +1,41 @@
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AreaAffected a rdfs:Class .
+
+ex:Disaster a rdfs:Class .
+
+ex:Equipment a rdfs:Class .
+
+ex:FireCharacteristic a rdfs:Class .
+
+ex:FireEvent a rdfs:Class .
+
+ex:FireSuppressionMethod a rdfs:Class .
+
+ex:Location a rdfs:Class .
+
+ex:Personnel a rdfs:Class .
+
+ex:FireEvent1234 a ex:FireEvent ;
+    ex:affectsArea "100 acres"^^xsd:string ;
+    ex:employsMethod "Water and Foam"^^xsd:string ;
+    ex:hasCharacteristic "Forest Fire"^^xsd:string ;
+    ex:hasLocation "LocationXYZ"^^xsd:string ;
+    ex:involvedPersonnel "50 firefighters"^^xsd:string ;
+    ex:usesEquipment "5 firetrucks"^^xsd:string .
+
+ex:affectsArea a rdf:Property .
+
+ex:employsMethod a rdf:Property .
+
+ex:hasCharacteristic a rdf:Property .
+
+ex:hasLocation a rdf:Property .
+
+ex:involvedPersonnel a rdf:Property .
+
+ex:usesEquipment a rdf:Property .
+

@@ -1,0 +1,183 @@
+@prefix ex: <http://example.org/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AreaAffected a rdfs:Class .
+
+ex:AreaType a rdfs:Class .
+
+ex:CauseOfFire a rdfs:Class .
+
+ex:Disaster a rdfs:Class .
+
+ex:Equipment a rdfs:Class .
+
+ex:EquipmentType a rdfs:Class .
+
+ex:FireCharacteristic a rdfs:Class .
+
+ex:FireEvent a rdfs:Class .
+
+ex:FireImpact a rdfs:Class .
+
+ex:FireSuppressionMethod a rdfs:Class .
+
+ex:Location a rdfs:Class .
+
+ex:Personnel a rdfs:Class .
+
+ex:PersonnelType a rdfs:Class .
+
+ex:Vehicle a rdfs:Class .
+
+geo:Point a rdfs:Class .
+
+ex:FireEvent1 ex:areaSize 100 ;
+    ex:equipmentCapacity "1000 liters"^^xsd:string ;
+    ex:eventDuration "1 hours"^^xsd:duration ;
+    ex:eventTime "2024-01-30T10:01:00"^^xsd:dateTime ;
+    ex:hasCause "Cause1"^^xsd:string ;
+    ex:locatedIn "Area1"^^xsd:string ;
+    ex:operatesEquipment ex:Equipment1 ;
+    ex:personnelCount 10 ;
+    ex:usesMethod "Method1"^^xsd:string .
+
+ex:FireEvent1234 a ex:FireEvent ;
+    ex:affectsArea "100 acres"^^xsd:string ;
+    ex:employsMethod "Water and Foam"^^xsd:string ;
+    ex:hasCharacteristic "Forest Fire"^^xsd:string ;
+    ex:hasLocation "LocationXYZ"^^xsd:string ;
+    ex:involvedPersonnel "50 firefighters"^^xsd:string ;
+    ex:locatedIn ex:Location123 ;
+    ex:usesEquipment "5 firetrucks"^^xsd:string .
+
+ex:FireEvent2 ex:areaSize 200 ;
+    ex:equipmentCapacity "2000 liters"^^xsd:string ;
+    ex:eventDuration "2 hours"^^xsd:duration ;
+    ex:eventTime "2024-01-30T10:02:00"^^xsd:dateTime ;
+    ex:hasCause "Cause2"^^xsd:string ;
+    ex:locatedIn "Area2"^^xsd:string ;
+    ex:operatesEquipment ex:Equipment2 ;
+    ex:personnelCount 20 ;
+    ex:usesMethod "Method2"^^xsd:string .
+
+ex:FireEvent3 ex:areaSize 300 ;
+    ex:equipmentCapacity "3000 liters"^^xsd:string ;
+    ex:eventDuration "3 hours"^^xsd:duration ;
+    ex:eventTime "2024-01-30T10:03:00"^^xsd:dateTime ;
+    ex:hasCause "Cause3"^^xsd:string ;
+    ex:locatedIn "Area3"^^xsd:string ;
+    ex:operatesEquipment ex:Equipment3 ;
+    ex:personnelCount 30 ;
+    ex:usesMethod "Method3"^^xsd:string .
+
+ex:FireEvent4 ex:areaSize 400 ;
+    ex:equipmentCapacity "4000 liters"^^xsd:string ;
+    ex:eventDuration "4 hours"^^xsd:duration ;
+    ex:eventTime "2024-01-30T10:04:00"^^xsd:dateTime ;
+    ex:hasCause "Cause4"^^xsd:string ;
+    ex:locatedIn "Area4"^^xsd:string ;
+    ex:operatesEquipment ex:Equipment4 ;
+    ex:personnelCount 40 ;
+    ex:usesMethod "Method4"^^xsd:string .
+
+ex:FireEvent5 ex:areaSize 500 ;
+    ex:equipmentCapacity "5000 liters"^^xsd:string ;
+    ex:eventDuration "5 hours"^^xsd:duration ;
+    ex:eventTime "2024-01-30T10:05:00"^^xsd:dateTime ;
+    ex:hasCause "Cause5"^^xsd:string ;
+    ex:locatedIn "Area5"^^xsd:string ;
+    ex:operatesEquipment ex:Equipment5 ;
+    ex:personnelCount 50 ;
+    ex:usesMethod "Method5"^^xsd:string .
+
+ex:FireEvent5678 a ex:FireEvent ;
+    ex:affectsArea "200 acres"^^xsd:string ;
+    ex:employsMethod "Chemical retardants"^^xsd:string ;
+    ex:hasCharacteristic "Hill Fire"^^xsd:string ;
+    ex:hasLocation "LocationABC"^^xsd:string ;
+    ex:involvedPersonnel "100 firefighters"^^xsd:string ;
+    ex:usesEquipment "10 firetrucks"^^xsd:string .
+
+ex:Personnel1 ex:assignedToVehicle ex:Vehicle1 .
+
+ex:Personnel2 ex:assignedToVehicle ex:Vehicle2 .
+
+ex:Personnel3 ex:assignedToVehicle ex:Vehicle3 .
+
+ex:Personnel4 ex:assignedToVehicle ex:Vehicle4 .
+
+ex:Personnel5 ex:assignedToVehicle ex:Vehicle5 .
+
+ex:affectsArea a rdf:Property .
+
+ex:areaSize a rdf:Property .
+
+ex:assignedToVehicle a rdf:Property .
+
+ex:capacityOfEquipment a rdf:Property .
+
+ex:causedBy a rdf:Property .
+
+ex:dateOfEvent a rdf:Property .
+
+ex:durationOfEvent a rdf:Property .
+
+ex:employsMethod a rdf:Property .
+
+ex:equipmentCapacity a rdf:Property .
+
+ex:eventDuration a rdf:Property .
+
+ex:eventTime a rdf:Property .
+
+ex:hasCause a rdf:Property .
+
+ex:hasCharacteristic a rdf:Property .
+
+ex:hasEquipmentType a rdf:Property .
+
+ex:hasImpact a rdf:Property .
+
+ex:hasLocation a rdf:Property .
+
+ex:hasPersonnelType a rdf:Property .
+
+ex:hasVehicleType a rdf:Property .
+
+ex:involvedPersonnel a rdf:Property .
+
+ex:locatedIn a rdf:Property .
+
+ex:locationCoordinates a rdf:Property .
+
+ex:numberOfPersonnel a rdf:Property .
+
+ex:ofType a rdf:Property .
+
+ex:operatesEquipment a rdf:Property .
+
+ex:personnelCount a rdf:Property .
+
+ex:severityOfFire a rdf:Property .
+
+ex:sizeOfAreaAffected a rdf:Property .
+
+ex:timeOfEvent a rdf:Property .
+
+ex:usedInArea a rdf:Property .
+
+ex:usesEquipment a rdf:Property .
+
+ex:usesMethod a rdf:Property .
+
+geo:lat a rdf:Property .
+
+geo:long a rdf:Property .
+
+ex:Location123 a geo:Point ;
+    geo:lat 40.7128 ;
+    geo:long -74.0060 .
+

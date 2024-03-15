@@ -1,0 +1,259 @@
+@prefix ex: <http://example.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Area a rdfs:Class ;
+    ex:areaSize "SampleValue4"^^xsd:string ;
+    ex:equipmentCapacity "SampleValue4"^^xsd:string ;
+    ex:eventDuration "SampleValue4"^^xsd:string ;
+    ex:eventTime "SampleValue4"^^xsd:string ;
+    ex:fireSeverity "SampleValue4"^^xsd:string ;
+    ex:numberofCasualties "SampleValue4"^^xsd:string ;
+    ex:numberofVehicles "SampleValue4"^^xsd:string ;
+    ex:operationCost "SampleValue4"^^xsd:string ;
+    ex:personnelCount "SampleValue4"^^xsd:string ;
+    ex:responseTime "SampleValue4"^^xsd:string .
+
+ex:EmergencyVehicle a rdfs:Class .
+
+ex:Equipment a rdfs:Class ;
+    ex:areaSize "SampleValue3"^^xsd:string ;
+    ex:equipmentCapacity "SampleValue3"^^xsd:string ;
+    ex:eventDuration "SampleValue3"^^xsd:string ;
+    ex:eventTime "SampleValue3"^^xsd:string ;
+    ex:fireSeverity "SampleValue3"^^xsd:string ;
+    ex:numberofCasualties "SampleValue3"^^xsd:string ;
+    ex:numberofVehicles "SampleValue3"^^xsd:string ;
+    ex:operationCost "SampleValue3"^^xsd:string ;
+    ex:personnelCount "SampleValue3"^^xsd:string ;
+    ex:responseTime "SampleValue3"^^xsd:string .
+
+ex:FireCause a rdfs:Class ;
+    ex:areaSize "SampleValue5"^^xsd:string ;
+    ex:equipmentCapacity "SampleValue5"^^xsd:string ;
+    ex:eventDuration "SampleValue5"^^xsd:string ;
+    ex:eventTime "SampleValue5"^^xsd:string ;
+    ex:fireSeverity "SampleValue5"^^xsd:string ;
+    ex:numberofCasualties "SampleValue5"^^xsd:string ;
+    ex:numberofVehicles "SampleValue5"^^xsd:string ;
+    ex:operationCost "SampleValue5"^^xsd:string ;
+    ex:personnelCount "SampleValue5"^^xsd:string ;
+    ex:responseTime "SampleValue5"^^xsd:string .
+
+ex:FireEvent a rdfs:Class ;
+    ex:areaSize "SampleValue0"^^xsd:string ;
+    ex:assignedToVehicle ex:Personnel ;
+    ex:coordinatesWith ex:Personnel ;
+    ex:equipmentCapacity "SampleValue0"^^xsd:string ;
+    ex:eventDuration "SampleValue0"^^xsd:string ;
+    ex:eventTime "SampleValue0"^^xsd:string ;
+    ex:fireSeverity "SampleValue0"^^xsd:string ;
+    ex:hasCause ex:Personnel ;
+    ex:locatedInArea ex:Personnel ;
+    ex:managesArea ex:Personnel ;
+    ex:numberofCasualties "SampleValue0"^^xsd:string ;
+    ex:numberofVehicles "SampleValue0"^^xsd:string ;
+    ex:operatesEquipment ex:Personnel ;
+    ex:operationCost "SampleValue0"^^xsd:string ;
+    ex:partOfOperation ex:Personnel ;
+    ex:personnelCount "SampleValue0"^^xsd:string ;
+    ex:responseTime "SampleValue0"^^xsd:string ;
+    ex:stationedAt ex:Personnel ;
+    ex:supportsOperation ex:Personnel ;
+    ex:usesMethod ex:Personnel ;
+    owl:disjointWith ex:FireStation .
+
+ex:FireImpact a rdfs:Class ;
+    ex:areaSize "SampleValue6"^^xsd:string ;
+    ex:equipmentCapacity "SampleValue6"^^xsd:string ;
+    ex:eventDuration "SampleValue6"^^xsd:string ;
+    ex:eventTime "SampleValue6"^^xsd:string ;
+    ex:fireSeverity "SampleValue6"^^xsd:string ;
+    ex:numberofCasualties "SampleValue6"^^xsd:string ;
+    ex:numberofVehicles "SampleValue6"^^xsd:string ;
+    ex:operationCost "SampleValue6"^^xsd:string ;
+    ex:personnelCount "SampleValue6"^^xsd:string ;
+    ex:responseTime "SampleValue6"^^xsd:string .
+
+ex:FireStation a rdfs:Class ;
+    ex:areaSize "SampleValue8"^^xsd:string ;
+    ex:equipmentCapacity "SampleValue8"^^xsd:string ;
+    ex:eventDuration "SampleValue8"^^xsd:string ;
+    ex:eventTime "SampleValue8"^^xsd:string ;
+    ex:fireSeverity "SampleValue8"^^xsd:string ;
+    ex:numberofCasualties "SampleValue8"^^xsd:string ;
+    ex:numberofVehicles "SampleValue8"^^xsd:string ;
+    ex:operationCost "SampleValue8"^^xsd:string ;
+    ex:personnelCount "SampleValue8"^^xsd:string ;
+    ex:responseTime "SampleValue8"^^xsd:string ;
+    rdfs:subClassOf ex:Organization .
+
+ex:FireSuppressionMethod a rdfs:Class ;
+    ex:areaSize "SampleValue7"^^xsd:string ;
+    ex:equipmentCapacity "SampleValue7"^^xsd:string ;
+    ex:eventDuration "SampleValue7"^^xsd:string ;
+    ex:eventTime "SampleValue7"^^xsd:string ;
+    ex:fireSeverity "SampleValue7"^^xsd:string ;
+    ex:numberofCasualties "SampleValue7"^^xsd:string ;
+    ex:numberofVehicles "SampleValue7"^^xsd:string ;
+    ex:operationCost "SampleValue7"^^xsd:string ;
+    ex:personnelCount "SampleValue7"^^xsd:string ;
+    ex:responseTime "SampleValue7"^^xsd:string .
+
+ex:Personnel a rdfs:Class ;
+    ex:areaSize "SampleValue1"^^xsd:string ;
+    ex:equipmentCapacity "SampleValue1"^^xsd:string ;
+    ex:eventDuration "SampleValue1"^^xsd:string ;
+    ex:eventTime "SampleValue1"^^xsd:string ;
+    ex:fireSeverity "SampleValue1"^^xsd:string ;
+    ex:numberofCasualties "SampleValue1"^^xsd:string ;
+    ex:numberofVehicles "SampleValue1"^^xsd:string ;
+    ex:operationCost "SampleValue1"^^xsd:string ;
+    ex:personnelCount "SampleValue1"^^xsd:string ;
+    ex:responseTime "SampleValue1"^^xsd:string .
+
+ex:RescueOperation a rdfs:Class ;
+    ex:areaSize "SampleValue9"^^xsd:string ;
+    ex:equipmentCapacity "SampleValue9"^^xsd:string ;
+    ex:eventDuration "SampleValue9"^^xsd:string ;
+    ex:eventTime "SampleValue9"^^xsd:string ;
+    ex:fireSeverity "SampleValue9"^^xsd:string ;
+    ex:numberofCasualties "SampleValue9"^^xsd:string ;
+    ex:numberofVehicles "SampleValue9"^^xsd:string ;
+    ex:operationCost "SampleValue9"^^xsd:string ;
+    ex:personnelCount "SampleValue9"^^xsd:string ;
+    ex:responseTime "SampleValue9"^^xsd:string ;
+    owl:equivalentClass ex:EmergencyResponse .
+
+ex:Vehicle a rdfs:Class ;
+    ex:areaSize "SampleValue2"^^xsd:string ;
+    ex:equipmentCapacity "SampleValue2"^^xsd:string ;
+    ex:eventDuration "SampleValue2"^^xsd:string ;
+    ex:eventTime "SampleValue2"^^xsd:string ;
+    ex:fireSeverity "SampleValue2"^^xsd:string ;
+    ex:numberofCasualties "SampleValue2"^^xsd:string ;
+    ex:numberofVehicles "SampleValue2"^^xsd:string ;
+    ex:operationCost "SampleValue2"^^xsd:string ;
+    ex:personnelCount "SampleValue2"^^xsd:string ;
+    ex:responseTime "SampleValue2"^^xsd:string .
+
+ex:WeatherCondition a rdfs:Class .
+
+ex:Personnel123 ex:assignedToVehicle ex:Vehicle123 ;
+    ex:operatesEquipment ex:Equipment123 .
+
+ex:areaSize a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:domain ex:Area ;
+    rdfs:range xsd:float .
+
+ex:assignedToVehicle a rdf:Property .
+
+ex:coordinatesWith a rdf:Property,
+        owl:TransitiveProperty .
+
+ex:equipmentCapacity a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:domain ex:Equipment ;
+    rdfs:range xsd:integer .
+
+ex:eventDuration a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:domain ex:FireEvent ;
+    rdfs:range xsd:duration .
+
+ex:eventTime a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:domain ex:FireEvent ;
+    rdfs:range xsd:dateTime .
+
+ex:fireSeverity a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:domain ex:FireEvent ;
+    rdfs:range xsd:string .
+
+ex:hasCause a rdf:Property .
+
+ex:hasWeatherCondition a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:domain ex:FireEvent ;
+    rdfs:range ex:WeatherCondition .
+
+ex:involves a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:domain ex:RescueOperation ;
+    rdfs:range ex:Personnel .
+
+ex:isCausedBy a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:domain ex:FireEvent ;
+    rdfs:range ex:FireCause .
+
+ex:isLocatedIn a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:domain ex:FireEvent ;
+    rdfs:range ex:Area .
+
+ex:isOperatedBy a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:domain ex:Personnel ;
+    rdfs:range ex:Equipment .
+
+ex:isRespondedToBy a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:domain ex:FireEvent ;
+    rdfs:range ex:FireStation .
+
+ex:locatedInArea a rdf:Property .
+
+ex:managesArea a rdf:Property,
+        owl:FunctionalProperty .
+
+ex:numberOfCasualties a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:domain ex:FireEvent ;
+    rdfs:range xsd:integer .
+
+ex:numberOfVehicles a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:domain ex:Vehicle ;
+    rdfs:range xsd:integer .
+
+ex:numberofCasualties a rdf:Property .
+
+ex:numberofVehicles a rdf:Property .
+
+ex:operatesEquipment a rdf:Property .
+
+ex:operationCost a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:domain ex:RescueOperation ;
+    rdfs:range xsd:float .
+
+ex:partOfOperation a rdf:Property .
+
+ex:personnelCount a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:domain ex:Personnel ;
+    rdfs:range xsd:integer .
+
+ex:responseTime a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:domain ex:FireEvent ;
+    rdfs:range xsd:duration .
+
+ex:stationedAt a rdf:Property .
+
+ex:supportsOperation a rdf:Property,
+        owl:SymmetricProperty .
+
+ex:usedInFireEvent a owl:ObjectProperty ;
+    rdfs:domain ex:Vehicle ;
+    rdfs:range ex:FireEvent .
+
+ex:usesMethod a rdf:Property .
+
+[] a owl:Class .
+
