@@ -1,0 +1,789 @@
+@prefix : <http://www.example.org/wildfire#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix units: <http://www.opengis.net/def/uom/OGC/1.0/> .
+@base <http://www.example.org/wildfire#> .
+
+<http://www.semanticweb.org/dimitrisdoumanas/ontologies/2024/2/untitled-ontology-240> rdf:type owl:Ontology .
+
+@prefix : <http://www.example.org/wildfire#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:WildfireIncident rdf:type owl:Class ;
+    rdfs:label "Wildfire Incident" .
+
+:serialNumber rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:string ;
+    rdfs:label "Serial Number" .
+
+:serviceTitle rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:string ;
+    rdfs:label "Service Title" .
+
+:bulletinEditor rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:string ;
+    rdfs:label "Bulletin Editor" .
+
+:incidentTimeline rdf:type owl:Class ;
+    rdfs:label "Incident Timeline" .
+
+:hasIncidentTimeline rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :incidentTimeline ;
+    rdfs:label "Has Incident Timeline" .
+
+:inception rdf:type owl:DatatypeProperty ;
+    rdfs:domain :incidentTimeline ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Inception" .
+
+:marking rdf:type owl:DatatypeProperty ;
+    rdfs:domain :incidentTimeline ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Marking" .
+
+:announcement rdf:type owl:DatatypeProperty ;
+    rdfs:domain :incidentTimeline ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Announcement" .
+
+:intervention rdf:type owl:DatatypeProperty ;
+    rdfs:domain :incidentTimeline ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Intervention" .
+
+:partialControl rdf:type owl:DatatypeProperty ;
+    rdfs:domain :incidentTimeline ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Partial Control" .
+
+:resurgence rdf:type owl:DatatypeProperty ;
+    rdfs:domain :incidentTimeline ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Resurgence" .
+
+:repayment rdf:type owl:DatatypeProperty ;
+    rdfs:domain :incidentTimeline ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Repayment" .
+
+:fullExtinguishing rdf:type owl:DatatypeProperty ;
+    rdfs:domain :incidentTimeline ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Full Extinguishing" .
+
+:falseAlarm rdf:type owl:Class ;
+    rdfs:label "False Alarm" .
+
+:hasFalseAlarm rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :falseAlarm ;
+    rdfs:label "Has False Alarm" .
+
+:malicious rdf:type owl:DatatypeProperty ;
+    rdfs:domain :falseAlarm ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Malicious" .
+
+:mistaken rdf:type owl:DatatypeProperty ;
+    rdfs:domain :falseAlarm ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Mistaken" .
+
+:notificationMethod rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:string ;
+    rdfs:label "Notification Method" .
+
+:distanceFromNearestFireVehicle rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:float ;
+    rdfs:label "Distance from Nearest Fire Vehicle (km)" .
+
+:hazardIndex rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:string ;
+    rdfs:label "Hazard Index" .
+
+:forestServiceResponsibility rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:string ;
+    rdfs:label "Forest Service Responsibility" .
+
+:fireType rdf:type owl:Class ;
+    rdfs:label "Fire Type" .
+
+:hasFireType rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :fireType ;
+    rdfs:label "Has Fire Type" .
+
+:vertical rdf:type owl:DatatypeProperty ;
+    rdfs:domain :fireType ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Vertical" .
+
+:creeping rdf:type owl:DatatypeProperty ;
+    rdfs:domain :fireType ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Creeping" .
+
+:lands rdf:type owl:DatatypeProperty ;
+    rdfs:domain :fireType ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Lands" .
+
+:mixed rdf:type owl:DatatypeProperty ;
+    rdfs:domain :fireType ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Mixed" .
+
+:startingPoint rdf:type owl:Class ;
+    rdfs:label "Starting Point" .
+
+:hasStartingPoint rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :startingPoint ;
+    rdfs:label "Has Starting Point" .
+
+:region rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPoint ;
+    rdfs:range xsd:string ;
+    rdfs:label "Region" .
+
+:municipality rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPoint ;
+    rdfs:range xsd:string ;
+    rdfs:label "Municipality" .
+
+:area rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPoint ;
+    rdfs:range xsd:string ;
+    rdfs:label "Area" .
+
+:longitude rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPoint ;
+    rdfs:range xsd:float ;
+    rdfs:label "Longitude" .
+
+:latitude rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPoint ;
+    rdfs:range xsd:float ;
+    rdfs:label "Latitude" .
+
+:altitude rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPoint ;
+    rdfs:range xsd:float ;
+    rdfs:label "Altitude" .
+
+:startingPosition rdf:type owl:Class ;
+    rdfs:label "Starting Position" .
+
+:hasStartingPosition rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :startingPosition ;
+    rdfs:label "Has Starting Position" .
+
+:grove rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Grove" .
+
+:forest rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Forest" .
+
+:woodland rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Woodland" .
+
+:agriculturalArea rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Agricultural Area" .
+
+:grasslandArea rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Grassland Area" .
+
+:reedSwamps rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Reed Swamps" .
+
+:populatedArea rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Populated Area" .
+
+:agriculturalFacility rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Agricultural Facility" .
+
+:livestockFacility rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Livestock Facility" .
+
+:garbageLandfill rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Garbage Landfill" .
+
+:industryCraftsmanship rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Industry Craftsmanship" .
+
+:constructionSite rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Construction Site" .
+
+:roadSlopes rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Road Slopes" .
+
+:other rdf:type owl:DatatypeProperty ;
+    rdfs:domain :startingPosition ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Other" .
+
+:possibleCause rdf:type owl:Class ;
+    rdfs:label "Possible Cause" .
+
+:hasPossibleCause rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :possibleCause ;
+    rdfs:label "Has Possible Cause" .
+
+:physical rdf:type owl:DatatypeProperty ;
+    rdfs:domain :possibleCause ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Physical" .
+
+:lightningStrike rdf:type owl:DatatypeProperty ;
+    rdfs:domain :possibleCause ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Lightning Strike" .
+
+:arsonWithIntent rdf:type owl:DatatypeProperty ;
+    rdfs:domain :possibleCause ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Arson with Intent" .
+
+:selfishAction rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonWithIntent ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Selfish Action" .
+
+:maliciousAction rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonWithIntent ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Malicious Action" .
+
+:concealingCrime rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonWithIntent ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Concealing a Crime" .
+
+:psychopathicEnergy rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonWithIntent ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Psychopathic Energy" .
+
+:mentallyRetardedEnergy rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonWithIntent ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Mentally Retarded Energy" .
+
+:pyromaniacEnergy rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonWithIntent ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Pyromaniac Energy" .
+
+:arsonByNegligence rdf:type owl:DatatypeProperty ;
+    rdfs:domain :possibleCause ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Arson by Negligence" .
+
+:wasteIncineration rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonByNegligence ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Waste Incineration" .
+
+:sparkMachinery rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonByNegligence ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Spark Machinery" .
+
+:hikersCampers rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonByNegligence ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Hikers Campers" .
+
+:hunters rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonByNegligence ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Hunters" .
+
+:armyShot rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonByNegligence ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Army Shot" .
+
+:useOfExplosives rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonByNegligence ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Use of Explosives" .
+
+:smokingResidue rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonByNegligence ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Smoking Residue" .
+
+:burningCropResidues rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonByNegligence ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Burning of Crop Residues" .
+
+:fieldWorkers rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonByNegligence ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Field Workers" .
+
+:shortCircuit rdf:type owl:DatatypeProperty ;
+    rdfs:domain :arsonByNegligence ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Short Circuit" .
+
+:offenderDetermination rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Offender Determination" .
+
+:areasBurnt rdf:type owl:Class ;
+    rdfs:label "Areas Burnt" .
+
+:hasAreasBurnt rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :areasBurnt ;
+    rdfs:label "Has Areas Burnt" .
+
+:forests rdf:type owl:DatatypeProperty ;
+    rdfs:domain :areasBurnt ;
+    rdfs:range xsd:float ;
+    rdfs:label "Forests" .
+
+:swampsReeds rdf:type owl:DatatypeProperty ;
+    rdfs:domain :areasBurnt ;
+    rdfs:range xsd:float ;
+    rdfs:label "Swamps Reeds" .
+
+:woodland rdf:type owl:DatatypeProperty ;
+    rdfs:domain :areasBurnt ;
+    rdfs:range xsd:float ;
+    rdfs:label "Woodland" .
+
+:grove rdf:type owl:DatatypeProperty ;
+    rdfs:domain :areasBurnt ;
+    rdfs:range xsd:float ;
+    rdfs:label "Grove" .
+
+:grasslands rdf:type owl:DatatypeProperty ;
+    rdfs:domain :areasBurnt ;
+    rdfs:range xsd:float ;
+    rdfs:label "Grasslands" .
+
+:agriculturalLands rdf:type owl:DatatypeProperty ;
+    rdfs:domain :areasBurnt ;
+    rdfs:range xsd:float ;
+    rdfs:label "Agricultural Lands" .
+
+:cropResidues rdf:type owl:DatatypeProperty ;
+    rdfs:domain :areasBurnt ;
+    rdfs:range xsd:float ;
+    rdfs:label "Crop Residues" .
+
+:otherLands rdf:type owl:DatatypeProperty ;
+    rdfs:domain :areasBurnt ;
+    rdfs:range xsd:float ;
+    rdfs:label "Other Lands" .
+
+:totalAreaBurnt rdf:type owl:DatatypeProperty ;
+    rdfs:domain :areasBurnt ;
+    rdfs:range xsd:float ;
+    rdfs:label "Total Area Burnt" .
+
+:otherDisasters rdf:type owl:Class ;
+    rdfs:label "Other Disasters" .
+
+:hasOtherDisasters rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :otherDisasters ;
+    rdfs:label "Has Other Disasters" .
+
+:Building rdf:type owl:Class ;
+    rdfs:label "Building" .
+
+:hasBuildings rdf:type owl:ObjectProperty ;
+    rdfs:domain :otherDisasters ;
+    rdfs:range :Building ;
+    rdfs:label "Has Buildings" .
+
+:buildingType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Building ;
+    rdfs:range xsd:string ;
+    rdfs:label "Building Type" .
+
+:buildingAddress rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Building ;
+    rdfs:range xsd:string ;
+    rdfs:label "Building Address" .
+
+:buildingInsurance rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Building ;
+    rdfs:range xsd:string ;
+    rdfs:label "Building Insurance" .
+
+:buildingOperatorName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Building ;
+    rdfs:range xsd:string ;
+    rdfs:label "Building Operator Name" .
+
+:Vehicle rdf:type owl:Class ;
+    rdfs:label "Vehicle" .
+
+:hasVehicles rdf:type owl:ObjectProperty ;
+    rdfs:domain :otherDisasters ;
+    rdfs:range :Vehicle ;
+    rdfs:label "Has Vehicles" .
+
+:vehicleType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range xsd:string ;
+    rdfs:label "Vehicle Type" .
+
+:vehicleLicensePlate rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range xsd:string ;
+    rdfs:label "Vehicle License Plate" .
+
+:vehicleInsurance rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range xsd:string ;
+    rdfs:label "Vehicle Insurance" .
+
+:vehicleOperatorName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range xsd:string ;
+    rdfs:label "Vehicle Operator Name" .
+
+:Rescue rdf:type owl:Class ;
+    rdfs:label "Rescue" .
+
+:hasRescues rdf:type owl:ObjectProperty ;
+    rdfs:domain :otherDisasters ;
+    rdfs:range :Rescue ;
+    rdfs:label "Has Rescues" .
+
+:rescueType rdf:type owl:Class ;
+    rdfs:label "Rescue Type" .
+
+:hasRescueType rdf:type owl:ObjectProperty ;
+    rdfs:domain :Rescue ;
+    rdfs:range :rescueType ;
+    rdfs:label "Has Rescue Type" .
+
+:PersonRescue rdf:type owl:Class ;
+    rdfs:subClassOf :rescueType ;
+    rdfs:label "Person Rescue" .
+
+:personFullName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :PersonRescue ;
+    rdfs:range xsd:string ;
+    rdfs:label "Person Full Name" .
+
+:personCapacity rdf:type owl:DatatypeProperty ;
+    rdfs:domain :PersonRescue ;
+    rdfs:range xsd:string ;
+    rdfs:label "Person Capacity" .
+
+:personAge rdf:type owl:DatatypeProperty ;
+    rdfs:domain :PersonRescue ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Person Age" .
+
+:personRescueCause rdf:type owl:DatatypeProperty ;
+    rdfs:domain :PersonRescue ;
+    rdfs:range xsd:string ;
+    rdfs:label "Person Rescue Cause" .
+
+:AnimalRescue rdf:type owl:Class ;
+    rdfs:subClassOf :rescueType ;
+    rdfs:label "Animal Rescue" .
+
+:animalType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :AnimalRescue ;
+    rdfs:range xsd:string ;
+    rdfs:label "Animal Type" .
+
+:birdType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :AnimalRescue ;
+    rdfs:range xsd:string ;
+    rdfs:label "Bird Type" .
+
+:numberOfHives rdf:type owl:DatatypeProperty ;
+    rdfs:domain :AnimalRescue ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Number of Hives" .
+
+:Accident rdf:type owl:Class ;
+    rdfs:label "Accident" .
+
+:hasAccidents rdf:type owl:ObjectProperty ;
+    rdfs:domain :otherDisasters ;
+    rdfs:range :Accident ;
+    rdfs:label "Has Accidents" .
+
+:accidentType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Accident ;
+    rdfs:range xsd:string ;
+    rdfs:label "Accident Type" .
+
+:accidentFullName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Accident ;
+    rdfs:range xsd:string ;
+    rdfs:label "Accident Full Name" .
+
+:accidentCapacity rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Accident ;
+    rdfs:range xsd:string ;
+    rdfs:label "Accident Capacity" .
+
+:accidentCause rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Accident ;
+    rdfs:range xsd:string ;
+    rdfs:label "Accident Cause" .
+
+:InvolvedForces rdf:type owl:Class ;
+    rdfs:label "Involved Forces" .
+
+:hasInvolvedForces rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :InvolvedForces ;
+    rdfs:label "Has Involved Forces" .
+
+:permanentFireOfficers rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvolvedForces ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Permanent Fire Officers" .
+
+:seasonalFireOfficers rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvolvedForces ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Seasonal Fire Officers" .
+
+:permanentWalkingDepartments rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvolvedForces ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Permanent Walking Departments" .
+
+:seasonalWalkingDepartments rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvolvedForces ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Seasonal Walking Departments" .
+
+:volunteerFirefighters rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvolvedForces ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Volunteer Firefighters" .
+
+:armedForcesPersonnel rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvolvedForces ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Armed Forces Personnel" .
+
+:servicePersonnel rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvolvedForces ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Service Personnel" .
+
+:municipalityStaff rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvolvedForces ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Municipality Staff" .
+
+:clubMembers rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvolvedForces ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Club Members" .
+
+:publicSectorStaff rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvolvedForces ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Public Sector Staff" .
+
+:individualVolunteers rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvolvedForces ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Individual Volunteers" .
+
+:InvestmentInstruments rdf:type owl:Class ;
+    rdfs:label "Investment Instruments" .
+
+:hasInvestmentInstruments rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :InvestmentInstruments ;
+    rdfs:label "Has Investment Instruments" .
+
+:firetrucks rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvestmentInstruments ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Firetrucks" .
+
+:tankers rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvestmentInstruments ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Tankers" .
+
+:fireVehiclesOfOtherServices rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvestmentInstruments ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Fire Vehicles of Other Services" .
+
+:variousMachines rdf:type owl:DatatypeProperty ;
+    rdfs:domain :InvestmentInstruments ;
+    rdfs:range xsd:string ;
+    rdfs:label "Various Machines" .
+
+:portableTools rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:string ;
+    rdfs:label "Portable Tools and Machines" .
+
+:AirSupport rdf:type owl:Class ;
+    rdfs:label "Air Support" .
+
+:hasAirSupport rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :AirSupport ;
+    rdfs:label "Has Air Support" .
+
+:aircraftType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :AirSupport ;
+    rdfs:range xsd:string ;
+    rdfs:label "Aircraft Type" .
+
+:numberOfAircraft rdf:type owl:DatatypeProperty ;
+    rdfs:domain :AirSupport ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Number of Aircraft" .
+
+:DepositMethod rdf:type owl:Class ;
+    rdfs:label "Deposit Method" .
+
+:hasDepositMethod rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :DepositMethod ;
+    rdfs:label "Has Deposit Method" .
+
+:aerialMeans rdf:type owl:DatatypeProperty ;
+    rdfs:domain :DepositMethod ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "By Aerial Means" .
+
+:selfExtinguishing rdf:type owl:DatatypeProperty ;
+    rdfs:domain :DepositMethod ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Self Extinguishing" .
+
+:groundSections rdf:type owl:DatatypeProperty ;
+    rdfs:domain :DepositMethod ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "With Ground Sections" .
+
+:pedestrianSections rdf:type owl:DatatypeProperty ;
+    rdfs:domain :DepositMethod ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "With Pedestrian Sections" .
+
+:useOfBackfire rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Use of Backfire or Incineration" .
+
+:waterUsage rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:float ;
+    rdfs:label "Water Usage (m^3)" .
+
+:foamUsage rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:float ;
+    rdfs:label "Foam Usage (lt)" .
+
+:retardantUsage rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range xsd:float ;
+    rdfs:label "Retardant Usage (kg)" .
+
+:FireFightingPersonnel rdf:type owl:Class ;
+    rdfs:label "Fire Fighting Personnel" .
+
+:hasFireFightingPersonnel rdf:type owl:ObjectProperty ;
+    rdfs:domain :WildfireIncident ;
+    rdfs:range :FireFightingPersonnel ;
+    rdfs:label "Has Fire Fighting Personnel" .
+
+:vehicleNumber rdf:type owl:DatatypeProperty ;
+    rdfs:domain :FireFightingPersonnel ;
+    rdfs:range xsd:string ;
+    rdfs:label "Vehicle Number" .
+
+:outputType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :FireFightingPersonnel ;
+    rdfs:range xsd:string ;
+    rdfs:label "Output Type" .
+
+:notificationDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain :FireFightingPersonnel ;
+    rdfs:range xsd:date ;
+    rdfs:label "Notification Date" .
+
+:notificationTime rdf:type owl:DatatypeProperty ;
+    rdfs:domain :FireFightingPersonnel ;
+    rdfs:range xsd:time ;
+    rdfs:label "Notification Time" .
+
+:departureDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain :FireFightingPersonnel ;
+    rdfs:range xsd:date ;
+    rdfs:label "Departure Date" .
+
+:departureTime rdf:type owl:DatatypeProperty ;
+    rdfs:domain :FireFightingPersonnel ;
+    rdfs:range xsd:time ;
+    rdfs:label "Departure Time" .
+
+:arrivalDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain :FireFightingPersonnel ;
+    rdfs:range xsd:date ;
+    rdfs:label "Arrival Date" .
