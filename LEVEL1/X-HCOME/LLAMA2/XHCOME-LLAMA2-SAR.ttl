@@ -1,0 +1,47 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix search_rescue_ontology: <http://www.semanticweb.org/personal-ontology/2023/search-rescue-ontology#> .
+
+# Define classes and individuals
+search_rescue_ontology:WildfireDomain a owl:Class .
+search_rescue_ontology:WildfireAgent a owl:Class .
+search_rescue_ontology:Wildfire a owl:Class .
+search_rescue_ontology:WildfireInstance a owl:Class .
+search_rescue_ontology:WildfireLocation a owl:Class .
+search_rescue_ontology:Location a owl:Class .
+search_rescue_ontology:Person a owl:Class .
+search_rescue_ontology:SearchAndRescueMission a owl:Class .
+search_rescue_ontology:SearchAndRescuePlan a owl:Class .
+search_rescue_ontology:Communication a owl:Class .
+search_rescue_ontology:InformationExchange a owl:Class .
+search_rescue_ontology:Coordination a owl:Class .
+
+# Define individuals
+search_rescue_ontology:wildfireInstance a search_rescue_ontology:WildfireInstance .
+search_rescue_ontology:wildfireLocation a search_rescue_ontology:WildfireLocation .
+search_rescue_ontology:locationInstance a search_rescue_ontology:Location .
+search_rescue_ontology:personInstance a search_rescue_ontology:Person .
+search_rescue_ontology:searchAndRescueMissionInstance a search_rescue_ontology:SearchAndRescueMission .
+search_rescue_ontology:searchAndRescuePlanInstance a search_rescue_ontology:SearchAndRescuePlan .
+search_rescue_ontology:communicationInstance a search_rescue_ontology:Communication .
+search_rescue_ontology:informationExchangeInstance a search_rescue_ontology:InformationExchange .
+search_rescue_ontology:coordinationInstance a search_rescue_ontology:Coordination .
+
+# Define properties and relationships
+search_rescue_ontology:hasInstance a owl:ObjectProperty .
+search_rescue_ontology:hasPrimitiveFunction a owl:ObjectProperty .
+search_rescue_ontology:hasRelationship a owl:ObjectProperty .
+search_rescue_ontology:hasRole a owl:ObjectProperty .
+search_rescue_ontology:hasRelationshipWith a owl:ObjectProperty .
+search_rescue_ontology:subPlanOf a owl:ObjectProperty .
+search_rescue_ontology:departmentOf a owl:ObjectProperty .
+search_rescue_ontology:apsisAngle a owl:ObjectProperty .
+search_rescue_ontology:coordinate a owl:ObjectProperty .
+
+# Define individuals and their properties
+search_rescue_ontology:wildfireInstance search_rescue_ontology:hasPrimitiveFunction search_rescue_ontology:spreadFire() .
+search_rescue_ontology:wildfireInstance search_rescue_ontology:hasPrimitiveFunction search_rescue_ontology:extinguishFire() .
+search_rescue_ontology:wildfireLocation search_rescue_ontology:hasPrimitiveFunction search_rescue_ontology:coordinateSystemPosition() .
+
+# Define more individuals and properties as needed...
