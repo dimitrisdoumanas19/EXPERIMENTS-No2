@@ -1,0 +1,810 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/ontology/wildfire#> .
+
+# Classes
+:WildfireEvent rdf:type owl:Class .
+:WeatherConditions rdf:type owl:Class .
+:WeatherForecast rdf:type owl:Class .
+:DataObservations rdf:type owl:Class .
+:SmokeClassification rdf:type owl:Class .
+:VulnerableObjects rdf:type owl:Class .
+:WildfireForestryWorks rdf:type owl:Class .
+:ServicesForFirefighting rdf:type owl:Class .
+:FirefightingMission rdf:type owl:Class .
+:PopulationDensity rdf:type owl:Class .
+:InvolvedPeople rdf:type owl:Class .
+:SearchAndRescueMission rdf:type owl:Class .
+:EvacuationPlan rdf:type owl:Class .
+:EmergencyAlertSystem rdf:type owl:Class .
+:EmergencyResponseTeam rdf:type owl:Class .
+:EmergencyResource rdf:type owl:Class .
+:WildlifeHabitat rdf:type owl:Class .
+:Firebreak rdf:type owl:Class .
+:EmergencyShelter rdf:type owl:Class .
+:IncidentCommandCenter rdf:type owl:Class .
+:Firefighter rdf:type owl:Class .
+:Equipment rdf:type owl:Class .
+
+# Object Properties
+:hasWeatherConditions rdf:type owl:ObjectProperty ;
+                     rdfs:domain :WildfireEvent ;
+                     rdfs:range :WeatherConditions .
+
+:hasWeatherForecast rdf:type owl:ObjectProperty ;
+                   rdfs:domain :WildfireEvent ;
+                   rdfs:range :WeatherForecast .
+
+:hasDataObservations rdf:type owl:ObjectProperty ;
+                    rdfs:domain :WildfireEvent ;
+                    rdfs:range :DataObservations .
+
+:hasSmokeClassification rdf:type owl:ObjectProperty ;
+                      rdfs:domain :WildfireEvent ;
+                      rdfs:range :SmokeClassification .
+
+:involvesVulnerableObjects rdf:type owl:ObjectProperty ;
+                        rdfs:domain :WildfireEvent ;
+                        rdfs:range :VulnerableObjects .
+
+:hasWildfireForestryWorks rdf:type owl:ObjectProperty ;
+                         rdfs:domain :WildfireEvent ;
+                         rdfs:range :WildfireForestryWorks .
+
+:offersServicesForFirefighting rdf:type owl:ObjectProperty ;
+                              rdfs:domain :ServicesForFirefighting ;
+                              rdfs:range :FirefightingMission .
+
+:followsMission rdf:type owl:ObjectProperty ;
+               rdfs:domain :ServicesForFirefighting ;
+               rdfs:range :FirefightingMission .
+
+:missionLocation rdf:type owl:ObjectProperty ;
+                rdfs:domain :FirefightingMission ;
+                rdfs:range xsd:string .
+
+:populationDensity rdf:type owl:ObjectProperty ;
+                  rdfs:domain :PopulationDensity ;
+                  rdfs:range xsd:float .
+
+:location rdf:type owl:ObjectProperty ;
+         rdfs:domain :InvolvedPeople, :FirefightingMission, :SearchAndRescueMission ;
+         rdfs:range xsd:string .
+
+:hasEvacuationPlan rdf:type owl:ObjectProperty ;
+                  rdfs:domain :ServicesForFirefighting ;
+                  rdfs:range :EvacuationPlan .
+
+:hasEmergencyAlertSystem rdf:type owl:ObjectProperty ;
+                       rdfs:domain :ServicesForFirefighting ;
+                       rdfs:range :EmergencyAlertSystem .
+
+:hasEmergencyResponseTeam rdf:type owl:ObjectProperty ;
+                        rdfs:domain :ServicesForFirefighting ;
+                        rdfs:range :EmergencyResponseTeam .
+
+:hasEmergencyResource rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ServicesForFirefighting ;
+                     rdfs:range :EmergencyResource .
+
+:protectsWildlifeHabitat rdf:type owl:ObjectProperty ;
+                       rdfs:domain :WildfireEvent ;
+                       rdfs:range :WildlifeHabitat .
+
+:hasFirebreak rdf:type owl:ObjectProperty ;
+              rdfs:domain :WildfireForestryWorks ;
+              rdfs:range :Firebreak .
+
+:providesEmergencyShelter rdf:type owl:ObjectProperty ;
+                        rdfs:domain :ServicesForFirefighting ;
+                        rdfs:range :EmergencyShelter .
+
+:commandsIncident rdf:type owl:ObjectProperty ;
+                 rdfs:domain :IncidentCommandCenter ;
+                 rdfs:range :WildfireEvent .
+
+:participatesInMission rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Firefighter ;
+                      rdfs:range :FirefightingMission .
+
+:utilizesEquipment rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Firefighter ;
+                   rdfs:range :Equipment .
+
+# Data Properties
+:hasPriority rdf:type owl:DatatypeProperty ;
+           rdfs:domain :WildfireEvent ;
+           rdfs:range xsd:string .
+
+:hasUrgency rdf:type owl:DatatypeProperty ;
+           rdfs:domain :WildfireEvent ;
+           rdfs:range xsd:string .
+
+:hasMeasurementValues rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :WeatherConditions ;
+                    rdfs:range xsd:float .
+
+:hasTimestamp rdf:type owl:DatatypeProperty ;
+             rdfs:domain :WeatherConditions, :WeatherForecast, :DataObservations ;
+             rdfs:range xsd:dateTime .
+
+:hasLocation rdf:type owl:DatatypeProperty ;
+            rdfs:domain :WildfireEvent, :DataObservations, :FirefightingMission, :PopulationDensity, :InvolvedPeople, :Firebreak, :IncidentCommandCenter ;
+            rdfs:range xsd:string .
+
+:hasClassificationType rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :SmokeClassification ;
+                    rdfs:range xsd:string .
+
+:hasPlanDetails rdf:type owl:DatatypeProperty ;
+              rdfs:domain :EvacuationPlan ;
+              rdfs:range xsd:string .
+
+:hasAlertSystemType rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :EmergencyAlertSystem ;
+                   rdfs:range xsd:string .
+
+:hasTeamDetails rdf:type owl:DatatypeProperty ;
+               rdfs:domain :EmergencyResponseTeam ;
+               rdfs:range xsd:string .
+
+:hasResourceDetails rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :EmergencyResource ;
+                  rdfs:range xsd:string .
+
+:protectsSpecies rdf:type owl:DatatypeProperty ;
+                rdfs:domain :WildlifeHabitat ;
+                rdfs:range xsd:string .
+
+:hasFirebreakType rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Firebreak ;
+                 rdfs:range xsd:string .
+
+:hasShelterDetails rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :EmergencyShelter ;
+                  rdfs:range xsd:string .
+
+:hasCommandCenterDetails rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :IncidentCommandCenter ;
+                        rdfs:range xsd:string .
+
+:hasFirefighterDetails rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Firefighter ;
+                      rdfs:range xsd:string .
+
+:hasEquipmentType rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Equipment ;
+                   rdfs:range xsd:string .
+
+# Individuals
+:WildfireEvent1 rdf:type :WildfireEvent ;
+                :hasWeatherConditions :WeatherConditions1 ;
+                :hasWeatherForecast :WeatherForecast1 ;
+                :hasDataObservations :DataObservations1 ;
+                :hasSmokeClassification :SmokeClassification1 ;
+                :involvesVulnerableObjects :VulnerableObjects1 ;
+                :hasWildfireForestryWorks :WildfireForestryWorks1 ;
+                :hasPriority "High" ;
+                :hasUrgency "Immediate" ;
+                :protectsWildlifeHabitat :WildlifeHabitat1 ;
+                :commandsIncident :IncidentCommandCenter1 .
+
+:WeatherConditions1 rdf:type :WeatherConditions ;
+                  :hasMeasurementValues 30.5 ;
+                  :hasTimestamp "2024-02-01T10:00:00Z"^^xsd:dateTime ;
+                  :hasLocation "Latitude: 40.123, Longitude: -120.456" .
+
+# Search and Rescue Mission
+:SearchAndRescueMission1 rdf:type :SearchAndRescueMission ;
+                         :offersServicesForFirefighting :ServicesForFirefighting1 ;
+                         :followsMission :FirefightingMission1 ;
+                         :missionLocation "Latitude: 40.123, Longitude: -120.456" ;
+                         :location "Latitude: 40.456, Longitude: -120.789" .
+
+# Evacuation Plan
+:EvacuationPlan1 rdf:type :EvacuationPlan ;
+                :hasPlanDetails "Evacuation plan details..." .
+
+# Emergency Alert System
+:EmergencyAlertSystem1 rdf:type :EmergencyAlertSystem ;
+                     :hasAlertSystemType "Emergency Alert System Type..." .
+
+# Emergency Response Team
+:EmergencyResponseTeam1 rdf:type :EmergencyResponseTeam ;
+                      :hasTeamDetails "Emergency Response Team details..." .
+
+# Emergency Resource
+:EmergencyResource1 rdf:type :EmergencyResource ;
+                   :hasResourceDetails "Emergency Resource details..." .
+
+# Wildlife Habitat
+:WildlifeHabitat1 rdf:type :WildlifeHabitat ;
+                 :protectsSpecies "Protected species..." .
+
+# Firebreak
+:Firebreak1 rdf:type :Firebreak ;
+           :hasFirebreakType "Firebreak Type..." .
+
+# Emergency Shelter
+:EmergencyShelter1 rdf:type :EmergencyShelter ;
+                   :hasShelterDetails "Emergency Shelter details..." .
+
+# Incident Command Center
+:IncidentCommandCenter1 rdf:type :IncidentCommandCenter ;
+                       :hasCommandCenterDetails "Incident Command Center details..." .
+
+# Firefighter
+:Firefighter1 rdf:type :Firefighter ;
+             :hasFirefighterDetails "Firefighter details..." .
+
+# Equipment
+:Equipment1 rdf:type :Equipment ;
+           :hasEquipmentType "Equipment Type..." .
+
+# Add more individuals and properties as needed for your specific data.
+
+# Fire Incident 1
+:FireIncident1 rdf:type :WildfireEvent ;
+              :hasWeatherConditions :WeatherConditions1 ;
+              :hasWeatherForecast :WeatherForecast1 ;
+              :hasDataObservations :DataObservations1 ;
+              :hasSmokeClassification :SmokeClassification1 ;
+              :involvesVulnerableObjects :VulnerableObjects1 ;
+              :hasWildfireForestryWorks :WildfireForestryWorks1 ;
+              :hasPriority "High" ;
+              :hasUrgency "Immediate" ;
+              :protectsWildlifeHabitat :WildlifeHabitat1 ;
+              :commandsIncident :IncidentCommandCenter1 ;
+              :hasLocationDetails "Klindia, Pyrgos, Elis" ;
+              :hasGeographicalCoordinates [
+                  rdf:type :GeographicalCoordinates ;
+                  :hasLatitude 21.6799445 ;
+                  :hasLongitude 37.7828260 ;
+              ] ;
+              :hasAltitudeOfIncident 484 ;
+              :hasStartingPoint "Forest area affected" ;
+              :hasPossibleCauseOfFire [
+                  rdf:type :PossibleCauseOfFire ;
+                  :hasCauseType "Lightning strike" ;
+                  :hasCauseType "Spark Machinery" ;
+                  :hasCauseType "Short circuit" ;
+              ] ;
+              :hasAreaBurnt [
+                  rdf:type :AreaBurnt ;
+                  :hasAreaValue 28 ;
+                  :hasAreaUnit "acres" ;
+              ] ;
+              :hasDeterminationOfOffender true ;
+              :hasForcesInvolved [
+                  rdf:type :ForcesInvolved ;
+                  :hasNumberOfFireOfficers 42 ;
+                  :hasNumberOfWalkingDepartments 14 ;
+                  :hasNumberOfVolunteerFirefighters 0 ;
+                  :hasNumberOfArmedForcesPersonnel 0 ;
+              ] ;
+              :hasInvestmentInstruments [
+                  rdf:type :InvestmentInstruments ;
+                  :hasNumberOfFiretrucks 14 ;
+                  :hasNumberOfTankers 2 ;
+              ] ;
+              :hasMethodOfDeposit "Self-extinguishing with ground and pedestrian sections" ;
+              :hasWaterUse [
+                  rdf:type :WaterUse ;
+                  :hasWaterValue 408 ;
+                  :hasWaterUnit "cubic meters" ;
+              ] ;
+              :hasFoamUsage [
+                  rdf:type :FoamUsage ;
+                  :hasFoamValue 623 ;
+                  :hasFoamUnit "liters" ;
+              ] ;
+              :hasEmploymentOfPersonnelAndMedia "Details on vehicle numbers, output type, notification, departure, arrival, departure from the event, return, number of personnel, and mileage" .
+
+# Fire Incident 2
+:FireIncident2 rdf:type :WildfireEvent ;
+              :hasWeatherConditions :WeatherConditions2 ;
+              :hasWeatherForecast :WeatherForecast2 ;
+              :hasDataObservations :DataObservations2 ;
+              :hasSmokeClassification :SmokeClassification2 ;
+              :involvesVulnerableObjects :VulnerableObjects2 ;
+              :hasWildfireForestryWorks :WildfireForestryWorks2 ;
+              :hasPriority "High" ;
+              :hasUrgency "Immediate" ;
+              :protectsWildlifeHabitat :WildlifeHabitat2 ;
+              :commandsIncident :IncidentCommandCenter2 ;
+              :hasLocationDetails "Kounoupeli, Lechena, Elis" ;
+              :hasGeographicalCoordinates [
+                  rdf:type :GeographicalCoordinates ;
+                  :hasLatitude 21.3517498 ;
+                  :hasLongitude 38.1019143 ;
+              ] ;
+              :hasAltitudeOfIncident 47 ;
+              :hasStartingPoint "Grassland area affected" ;
+              :hasPossibleCauseOfFire [
+                  rdf:type :PossibleCauseOfFire ;
+                  :hasCauseType "Hikers" ;
+                  :hasCauseType "Campers" ;
+                  :hasCauseType "Hunters" ;
+                  :hasCauseType "Smoking residue" ;
+              ] ;
+              :hasAreaBurnt [
+                  rdf:type :AreaBurnt ;
+                  :hasAreaValue 11 ;
+                  :hasAreaUnit "acres" ;
+              ] ;
+              :hasDeterminationOfOffender true ;
+              :hasForcesInvolved [
+                  rdf:type :ForcesInvolved ;
+                  :hasNumberOfFireOfficers 6 ;
+                  :hasNumberOfWalkingDepartments 3 ;
+                  :hasNumberOfVolunteerFirefighters 8 ;
+                  :hasNumberOfArmedForcesPersonnel 0 ;
+              ] ;
+              :hasInvestmentInstruments [
+                  rdf:type :InvestmentInstruments ;
+                  :hasNumberOfFiretrucks 3 ;
+                  :hasNumberOfTankers 4 ;
+              ] ;
+              :hasMethodOfDeposit "Self-extinguishing with ground and pedestrian sections" ;
+              :hasWaterUse [
+                  rdf:type :WaterUse ;
+                  :hasWaterValue 365 ;
+                  :hasWaterUnit "cubic meters" ;
+              ] ;
+              :hasFoamUsage [
+                  rdf:type :FoamUsage ;
+                  :hasFoamValue 783 ;
+                  :hasFoamUnit "liters" ;
+              ] ;
+              :hasEmploymentOfPersonnelAndMedia "Details on vehicle numbers, output type, notification, departure, arrival".
+
+# Fire Incident 3
+:FireIncident3 rdf:type :WildfireEvent ;
+              :hasWeatherConditions :WeatherConditions3 ;
+              :hasWeatherForecast :WeatherForecast3 ;
+              :hasDataObservations :DataObservations3 ;
+              :hasSmokeClassification :SmokeClassification3 ;
+              :involvesVulnerableObjects :VulnerableObjects3 ;
+              :hasWildfireForestryWorks :WildfireForestryWorks3 ;
+              :hasPriority "High" ;
+              :hasUrgency "Immediate" ;
+              :protectsWildlifeHabitat :WildlifeHabitat3 ;
+              :commandsIncident :IncidentCommandCenter3 ;
+              :hasLocationDetails "Gyri, Zakynthos" ;
+              :hasGeographicalCoordinates [
+                  rdf:type :GeographicalCoordinates ;
+                  :hasLatitude 37.7935071 ;
+                  :hasLongitude 20.7471506 ;
+              ] ;
+              :hasAltitudeOfIncident 570 ;
+              :hasStartingPoint "Woodland area affected" ;
+              :hasPossibleCauseOfFire [
+                  rdf:type :PossibleCauseOfFire ;
+                  :hasCauseType "Selfish action" ;
+                  :hasCauseType "Malicious action" ;
+                  :hasCauseType "Pyromaniac energy" ;
+              ] ;
+              :hasAreaBurnt [
+                  rdf:type :AreaBurnt ;
+                  :hasAreaValue "Forests, woodlands, grasslands, and other lands affected" ;
+              ] ;
+              :hasDeterminationOfOffender true ;
+              :hasForcesInvolved [
+                  rdf:type :ForcesInvolved ;
+                  :hasNumberOfFireOfficers 36 ;
+                  :hasNumberOfWalkingDepartments 15 ;
+                  :hasNumberOfVolunteerFirefighters 0 ;
+                  :hasNumberOfArmedForcesPersonnel 0 ;
+              ] ;
+              :hasInvestmentInstruments [
+                  rdf:type :InvestmentInstruments ;
+                  :hasNumberOfFiretrucks 0 ;
+                  :hasNumberOfTankers 0 ;
+              ] ;
+              :hasMethodOfDeposit "By aerial means, with ground and pedestrian sections" ;
+              :hasWaterUse [
+                  rdf:type :WaterUse ;
+                  :hasWaterValue 890 ;
+                  :hasWaterUnit "cubic meters" ;
+              ] ;
+              :hasFoamUsage [
+                  rdf:type :FoamUsage ;
+                  :hasFoamValue 598 ;
+                  :hasFoamUnit "liters" ;
+              ] ;
+              :hasUseOfRetarder [
+                  rdf:type :UseOfRetarder ;
+                  :hasRetarderValue 250 ;
+                  :hasRetarderUnit "kg" ;
+              ] ;
+           :hasEmploymentOfPersonnelAndMedia "Details on vehicle numbers, output type, notification, departure, arrival".
+
+# Fire Incident 4
+:FireIncident4 rdf:type :WildfireEvent ;
+              :hasWeatherConditions :WeatherConditions4 ;
+              :hasWeatherForecast :WeatherForecast4 ;
+              :hasDataObservations :DataObservations4 ;
+              :hasSmokeClassification :SmokeClassification4 ;
+              :involvesVulnerableObjects :VulnerableObjects4 ;
+              :hasWildfireForestryWorks :WildfireForestryWorks4 ;
+              :hasPriority "High" ;
+              :hasUrgency "Immediate" ;
+              :protectsWildlifeHabitat :WildlifeHabitat4 ;
+              :commandsIncident :IncidentCommandCenter4 ;
+              :hasLocationDetails "Platanos, Ancient Olympia, Elis" ;
+              :hasGeographicalCoordinates [
+                  rdf:type :GeographicalCoordinates ;
+                  :hasLatitude 37.6671455 ;
+                  :hasLongitude 21.6121380 ;
+              ] ;
+              :hasAltitudeOfIncident 62 ;
+              :hasStartingPoint "Agricultural area affected" ;
+              :hasPossibleCauseOfFire [
+                  rdf:type :PossibleCauseOfFire ;
+                  :hasCauseType "Malicious action" ;
+                  :hasCauseType "Spark machinery" ;
+                  :hasCauseType "Burning of crop residues" ;
+                  :hasCauseType "Field workers" ;
+              ] ;
+              :hasAreaBurnt [
+                  rdf:type :AreaBurnt ;
+                  :hasAreaValue "Woodland, agricultural lands, crop residues, other lands" ;
+              ] ;
+              :hasDeterminationOfOffender true ;
+              :hasForcesInvolved [
+                  rdf:type :ForcesInvolved ;
+                  :hasNumberOfFireOfficers 26 ;
+                  :hasNumberOfWalkingDepartments 10 ;
+                  :hasNumberOfVolunteerFirefighters 10 ;
+                  :hasNumberOfArmedForcesPersonnel 4 ;
+              ] ;
+              :hasInvestmentInstruments [
+                  rdf:type :InvestmentInstruments ;
+                  :hasNumberOfFiretrucks 0 ;
+                  :hasNumberOfTankers 0 ;
+              ] ;
+              :hasMethodOfDeposit "With ground and pedestrian sections, use of backfire or incineration" ;
+              :hasWaterUse [
+                  rdf:type :WaterUse ;
+                  :hasWaterValue 120 ;
+                  :hasWaterUnit "cubic meters" ;
+              ] ;
+              :hasFoamUsage [
+                  rdf:type :FoamUsage ;
+                  :hasFoamValue 38 ;
+                  :hasFoamUnit "liters" ;
+              ] ;
+       :hasEmploymentOfPersonnelAndMedia "Details on vehicle numbers, output type, notification, departure, arrival".
+
+# Fire Incident 5
+:FireIncident5 rdf:type :WildfireEvent ;
+              :hasWeatherConditions :WeatherConditions5 ;
+              :hasWeatherForecast :WeatherForecast5 ;
+              :hasDataObservations :DataObservations5 ;
+              :hasSmokeClassification :SmokeClassification5 ;
+              :involvesVulnerableObjects :VulnerableObjects5 ;
+              :hasWildfireForestryWorks :WildfireForestryWorks5 ;
+              :hasPriority "High" ;
+              :hasUrgency "Immediate" ;
+              :protectsWildlifeHabitat :WildlifeHabitat5 ;
+              :commandsIncident :IncidentCommandCenter5 ;
+              :hasLocationDetails "Pyrgos, Elis" ;
+              :hasGeographicalCoordinates [
+                  rdf:type :GeographicalCoordinates ;
+                  :hasLatitude 37.7185096 ;
+                  :hasLongitude 21.3510102 ;
+              ] ;
+              :hasAltitudeOfIncident 0 ;  # Not specified
+              :hasStartingPoint "Other lands affected" ;
+              :hasPossibleCauseOfFire [
+                  rdf:type :PossibleCauseOfFire ;
+                  :hasCauseType "Psychopath energy" ;
+                  :hasCauseType "Mentally retarded energy" ;
+              ] ;
+              :hasAreaBurnt [
+                  rdf:type :AreaBurnt ;
+                  :hasAreaValue "Not specified, Other lands affected" ;
+              ] ;
+              :hasDeterminationOfOffender true ;
+              :hasForcesInvolved [
+                  rdf:type :ForcesInvolved ;
+                  :hasNumberOfFireOfficers 6 ;
+                  :hasNumberOfWalkingDepartments 0 ;
+                  :hasNumberOfVolunteerFirefighters 0 ;
+                  :hasNumberOfArmedForcesPersonnel 0 ;
+              ] ;
+              :hasInvestmentInstruments [
+                  rdf:type :InvestmentInstruments ;
+                  :hasNumberOfFiretrucks 0 ;
+                  :hasNumberOfTankers 0 ;
+              ] ;
+              :hasMethodOfDeposit "With ground sections marked with an X" ;
+              :hasWaterUse [
+                  rdf:type :WaterUse ;
+                  :hasWaterValue 0 ;
+                  :hasWaterUnit "cubic meters" ;
+              ] ;
+              :hasFoamUsage [
+                  rdf:type :FoamUsage ;
+                  :hasFoamValue "Not specified" ;
+              ] ;
+       :hasEmploymentOfPersonnelAndMedia "Details on vehicle numbers, output type, notification, departure, arrival".
+
+# Fire Incident 6
+:FireIncident6 rdf:type :WildfireEvent ;
+              :hasWeatherConditions :WeatherConditions6 ;
+              :hasWeatherForecast :WeatherForecast6 ;
+              :hasDataObservations :DataObservations6 ;
+              :hasSmokeClassification :SmokeClassification6 ;
+              :involvesVulnerableObjects :VulnerableObjects6 ;
+              :hasWildfireForestryWorks :WildfireForestryWorks6 ;
+              :hasPriority "High" ;
+              :hasUrgency "Immediate" ;
+              :protectsWildlifeHabitat :WildlifeHabitat6 ;
+              :commandsIncident :IncidentCommandCenter6 ;
+              :hasLocationDetails "Platanos, Ancient Olympia, Elis" ;
+              :hasGeographicalCoordinates [
+                  rdf:type :GeographicalCoordinates ;
+                  :hasLatitude 37.6671455 ;
+                  :hasLongitude 21.6121380 ;
+              ] ;
+              :hasAltitudeOfIncident 62 ;
+              :hasStartingPoint "Woodland area affected" ;
+              :hasPossibleCauseOfFire [
+                  rdf:type :PossibleCauseOfFire ;
+                  :hasCauseType "Selfish action" ;
+                  :hasCauseType "Malicious action" ;
+                  :hasCauseType "Pyromaniac energy" ;
+              ] ;
+              :hasAreaBurnt [
+                  rdf:type :AreaBurnt ;
+                  :hasAreaValue 20.300 ;
+                  :hasAreaUnit "acres" ;
+              ] ;
+              :hasDeterminationOfOffender true ;
+              :hasForcesInvolved [
+                  rdf:type :ForcesInvolved ;
+                  :hasNumberOfFireOfficers 32 ;
+                  :hasNumberOfWalkingDepartments 16 ;
+                  :hasNumberOfVolunteerFirefighters 0 ;
+                  :hasNumberOfArmedForcesPersonnel 0 ;
+              ] ;
+              :hasInvestmentInstruments [
+                  rdf:type :InvestmentInstruments ;
+                  :hasNumberOfFiretrucks 0 ;
+                  :hasNumberOfTankers 0 ;
+              ] ;
+              :hasMethodOfDeposit "By aerial means, with ground and pedestrian sections" ;
+              :hasWaterUse [
+                  rdf:type :WaterUse ;
+                  :hasWaterValue 1230 ;
+                  :hasWaterUnit "cubic meters" ;
+              ] ;
+              :hasFoamUsage [
+                  rdf:type :FoamUsage ;
+                  :hasFoamValue 800 ;
+                  :hasFoamUnit "liters" ;
+              ] ;
+              :hasUseOfRetarder [
+                  rdf:type :UseOfRetarder ;
+                  :hasRetarderValue 500 ;
+                  :hasRetarderUnit "kg" ;
+              ] ;
+       :hasEmploymentOfPersonnelAndMedia "Details on vehicle numbers, output type, notification, departure, arrival".
+
+# Fire Incident 7
+:FireIncident7 rdf:type :WildfireEvent ;
+              :hasWeatherConditions :WeatherConditions7 ;
+              :hasWeatherForecast :WeatherForecast7 ;
+              :hasDataObservations :DataObservations7 ;
+              :hasSmokeClassification :SmokeClassification7 ;
+              :involvesVulnerableObjects :VulnerableObjects7 ;
+              :hasWildfireForestryWorks :WildfireForestryWorks7 ;
+              :hasPriority "High" ;
+              :hasUrgency "Immediate" ;
+              :protectsWildlifeHabitat :WildlifeHabitat7 ;
+              :commandsIncident :IncidentCommandCenter7 ;
+              :hasLocationDetails "Olympia, Elis" ;
+              :hasGeographicalCoordinates [
+                  rdf:type :GeographicalCoordinates ;
+                  :hasLatitude 37.6385191 ;
+                  :hasLongitude 21.6302803 ;
+              ] ;
+              :hasAltitudeOfIncident 60 ;
+              :hasStartingPoint "Livestock facility affected" ;
+              :hasPossibleCauseOfFire [
+                  rdf:type :PossibleCauseOfFire ;
+                  :hasCauseType "Malicious action" ;
+              ] ;
+              :hasAreaBurnt [
+                  rdf:type :AreaBurnt ;
+                  :hasAreaValue "Forests, woodlands, grasslands, and crop residues affected" ;
+              ] ;
+              :hasDeterminationOfOffender true ;
+              :hasForcesInvolved [
+                  rdf:type :ForcesInvolved ;
+                  :hasNumberOfFireOfficers 60 ;
+                  :hasNumberOfWalkingDepartments 30 ;
+                  :hasNumberOfVolunteerFirefighters 0 ;
+                  :hasNumberOfArmedForcesPersonnel 0 ;
+              ] ;
+              :hasInvestmentInstruments [
+                  rdf:type :InvestmentInstruments ;
+                  :hasNumberOfFiretrucks 0 ;
+                  :hasNumberOfTankers 0 ;
+              ] ;
+              :hasMethodOfDeposit "By aerial means, with ground and pedestrian sections" ;
+              :hasWaterUse [
+                  rdf:type :WaterUse ;
+                  :hasWaterValue 980 ;
+                  :hasWaterUnit "cubic meters" ;
+              ] ;
+              :hasFoamUsage [
+                  rdf:type :FoamUsage ;
+                  :hasFoamValue 700 ;
+                  :hasFoamUnit "liters" ;
+              ] ;
+       :hasEmploymentOfPersonnelAndMedia "Details on vehicle numbers, output type, notification, departure, arrival".
+
+# Fire Incident 8
+:FireIncident8 rdf:type :WildfireEvent ;
+              :hasWeatherConditions :WeatherConditions8 ;
+              :hasWeatherForecast :WeatherForecast8 ;
+              :hasDataObservations :DataObservations8 ;
+              :hasSmokeClassification :SmokeClassification8 ;
+              :involvesVulnerableObjects :VulnerableObjects8 ;
+              :hasWildfireForestryWorks :WildfireForestryWorks8 ;
+              :hasPriority "High" ;
+              :hasUrgency "Immediate" ;
+              :protectsWildlifeHabitat :WildlifeHabitat8 ;
+              :commandsIncident :IncidentCommandCenter8 ;
+              :hasLocationDetails "Vitineika, Pyrgos, Elis" ;
+              :hasGeographicalCoordinates [
+                  rdf:type :GeographicalCoordinates ;
+                  :hasLatitude 21.3881268 ;
+                  :hasLongitude 37.6838612 ;
+              ] ;
+              :hasAltitudeOfIncident 41 ;
+              :hasStartingPoint "Agricultural facility affected" ;
+              :hasPossibleCauseOfFire [
+                  rdf:type :PossibleCauseOfFire ;
+                  :hasCauseType "Psychopath energy" ;
+                  :hasCauseType "Malicious action" ;
+              ] ;
+              :hasAreaBurnt [
+                  rdf:type :AreaBurnt ;
+                  :hasAreaValue "Agricultural lands and grasslands affected" ;
+              ] ;
+              :hasDeterminationOfOffender true ;
+              :hasForcesInvolved [
+                  rdf:type :ForcesInvolved ;
+                  :hasNumberOfFireOfficers 10 ;
+                  :hasNumberOfWalkingDepartments 3 ;
+                  :hasNumberOfVolunteerFirefighters 0 ;
+                  :hasNumberOfArmedForcesPersonnel 0 ;
+              ] ;
+              :hasInvestmentInstruments [
+                  rdf:type :InvestmentInstruments ;
+                  :hasNumberOfFiretrucks 0 ;
+                  :hasNumberOfTankers 0 ;
+              ] ;
+              :hasMethodOfDeposit "With ground sections, with pedestrian sections, use of backfire or incineration" ;
+              :hasWaterUse [
+                  rdf:type :WaterUse ;
+                  :hasWaterValue 400 ;
+                  :hasWaterUnit "cubic meters" ;
+              ] ;
+              :hasFoamUsage [
+                  rdf:type :FoamUsage ;
+                  :hasFoamValue "Not specified" ;
+              ] ;
+       :hasEmploymentOfPersonnelAndMedia "Details on vehicle numbers, output type, notification, departure, arrival".
+
+# Fire Incident 9
+:FireIncident9 rdf:type :WildfireEvent ;
+              :hasWeatherConditions :WeatherConditions9 ;
+              :hasWeatherForecast :WeatherForecast9 ;
+              :hasDataObservations :DataObservations9 ;
+              :hasSmokeClassification :SmokeClassification9 ;
+              :involvesVulnerableObjects :VulnerableObjects9 ;
+              :hasWildfireForestryWorks :WildfireForestryWorks9 ;
+              :hasPriority "High" ;
+              :hasUrgency "Immediate" ;
+              :protectsWildlifeHabitat :WildlifeHabitat9 ;
+              :commandsIncident :IncidentCommandCenter9 ;
+              :hasLocationDetails "Aetorahi-Dafni-Vouprasiou, Andravidas-Kyllinis, Elis" ;
+              :hasGeographicalCoordinates [
+                  rdf:type :GeographicalCoordinates ;
+                  :hasLatitude 21.4715556 ;
+                  :hasLongitude 37.9357536 ;
+              ] ;
+              :hasAltitudeOfIncident 182 ;
+              :hasStartingPoint "Garbage-landfill area affected" ;
+              :hasPossibleCauseOfFire [
+                  rdf:type :PossibleCauseOfFire ;
+                  :hasCauseType "Incineration of waste" ;
+              ] ;
+              :hasAreaBurnt [
+                  rdf:type :AreaBurnt ;
+                  :hasAreaValue 20 ;
+                  :hasAreaUnit "acres" ;
+              ] ;
+              :hasDeterminationOfOffender true ;
+              :hasForcesInvolved [
+                  rdf:type :ForcesInvolved ;
+                  :hasNumberOfFireOfficers 20 ;
+                  :hasNumberOfWalkingDepartments 9 ;
+                  :hasNumberOfVolunteerFirefighters 0 ;
+                  :hasNumberOfArmedForcesPersonnel 0 ;
+              ] ;
+              :hasInvestmentInstruments [
+                  rdf:type :InvestmentInstruments ;
+                  :hasNumberOfFiretrucks 0 ;
+                  :hasNumberOfTankers 0 ;
+              ] ;
+              :hasMethodOfDeposit "By aerial means, with ground and pedestrian sections" ;
+              :hasWaterUse [
+                  rdf:type :WaterUse ;
+                  :hasWaterValue 360 ;
+                  :hasWaterUnit "cubic meters" ;
+              ] ;
+              :hasFoamUsage [
+                  rdf:type :FoamUsage ;
+                  :hasFoamValue "Not specified" ;
+              ] ;
+       :hasEmploymentOfPersonnelAndMedia "Details on vehicle numbers, output type, notification, departure, arrival".
+
+# Fire Incident 10
+:FireIncident10 rdf:type :WildfireEvent ;
+               :hasWeatherConditions :WeatherConditions10 ;
+               :hasWeatherForecast :WeatherForecast10 ;
+               :hasDataObservations :DataObservations10 ;
+               :hasSmokeClassification :SmokeClassification10 ;
+               :involvesVulnerableObjects :VulnerableObjects10 ;
+               :hasWildfireForestryWorks :WildfireForestryWorks10 ;
+               :hasPriority "High" ;
+               :hasUrgency "Immediate" ;
+               :protectsWildlifeHabitat :WildlifeHabitat10 ;
+               :commandsIncident :IncidentCommandCenter10 ;
+               :hasLocationDetails "Stevies, Vouprasia, Elis" ;
+               :hasGeographicalCoordinates [
+                   rdf:type :GeographicalCoordinates ;
+                   :hasLatitude 21.3551180 ;
+                   :hasLongitude 38.0044844 ;
+               ] ;
+               :hasAltitudeOfIncident 14 ;
+               :hasStartingPoint "Road slopes" ;
+               :hasPossibleCauseOfFire [
+                   rdf:type :PossibleCauseOfFire ;
+                   :hasCauseType "Mentally retarded energy" ;
+               ] ;
+               :hasAreaBurnt [
+                   rdf:type :AreaBurnt ;
+                   :hasAreaValue "Forests and grasslands affected" ;
+               ] ;
+               :hasDeterminationOfOffender true ;
+               :hasForcesInvolved [
+                   rdf:type :ForcesInvolved ;
+                   :hasNumberOfFireOfficers 48 ;
+                   :hasNumberOfWalkingDepartments 20 ;
+                   :hasNumberOfVolunteerFirefighters 0 ;
+                   :hasNumberOfArmedForcesPersonnel 0 ;
+               ] ;
+               :hasInvestmentInstruments [
+                   rdf:type :InvestmentInstruments ;
+                   :hasNumberOfFiretrucks 0 ;
+                   :hasNumberOfTankers 0 ;
+               ] ;
+               :hasMethodOfDeposit "With ground sections, use of backfire or incineration" ;
+               :hasWaterUse [
+                   rdf:type :WaterUse ;
+                   :hasWaterValue 800 ;
+                   :hasWaterUnit "cubic meters" ;
+               ] ;
+               :hasFoamUsage [
+                   rdf:type :FoamUsage ;
+                   :hasFoamValue 0 ;
+               ] ;
+       :hasEmploymentOfPersonnelAndMedia "Details on vehicle numbers, output type, notification, departure, arrival".

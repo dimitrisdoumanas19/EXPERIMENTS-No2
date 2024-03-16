@@ -1,0 +1,107 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/ontology/wildfire#> .
+
+# Classes
+:WildfireEvent rdf:type owl:Class .
+:WeatherConditions rdf:type owl:Class .
+:WeatherForecast rdf:type owl:Class .
+:DataObservations rdf:type owl:Class .
+:SmokeClassification rdf:type owl:Class .
+:VulnerableObjects rdf:type owl:Class .
+:WildfireForestryWorks rdf:type owl:Class .
+:ServicesForFirefighting rdf:type owl:Class .
+:FirefightingMission rdf:type owl:Class .
+:PopulationDensity rdf:type owl:Class .
+:InvolvedPeople rdf:type owl:Class .
+
+# Object Properties
+:hasWeatherConditions rdf:type owl:ObjectProperty ;
+                     rdfs:domain :WildfireEvent ;
+                     rdfs:range :WeatherConditions .
+
+:hasWeatherForecast rdf:type owl:ObjectProperty ;
+                   rdfs:domain :WildfireEvent ;
+                   rdfs:range :WeatherForecast .
+
+:hasDataObservations rdf:type owl:ObjectProperty ;
+                    rdfs:domain :WildfireEvent ;
+                    rdfs:range :DataObservations .
+
+:hasSmokeClassification rdf:type owl:ObjectProperty ;
+                      rdfs:domain :WildfireEvent ;
+                      rdfs:range :SmokeClassification .
+
+:involvesVulnerableObjects rdf:type owl:ObjectProperty ;
+                        rdfs:domain :WildfireEvent ;
+                        rdfs:range :VulnerableObjects .
+
+:hasWildfireForestryWorks rdf:type owl:ObjectProperty ;
+                         rdfs:domain :WildfireEvent ;
+                         rdfs:range :WildfireForestryWorks .
+
+:offersServicesForFirefighting rdf:type owl:ObjectProperty ;
+                              rdfs:domain :ServicesForFirefighting ;
+                              rdfs:range :FirefightingMission .
+
+:followsMission rdf:type owl:ObjectProperty ;
+               rdfs:domain :ServicesForFirefighting ;
+               rdfs:range :FirefightingMission .
+
+:missionLocation rdf:type owl:ObjectProperty ;
+                rdfs:domain :FirefightingMission ;
+                rdfs:range xsd:string .
+
+:populationDensity rdf:type owl:ObjectProperty ;
+                  rdfs:domain :PopulationDensity ;
+                  rdfs:range xsd:float .
+
+:location rdf:type owl:ObjectProperty ;
+         rdfs:domain :InvolvedPeople ;
+         rdfs:range xsd:string .
+
+# Data Properties
+:hasPriority rdf:type owl:DatatypeProperty ;
+           rdfs:domain :WildfireEvent ;
+           rdfs:range xsd:string .
+
+:hasUrgency rdf:type owl:DatatypeProperty ;
+           rdfs:domain :WildfireEvent ;
+           rdfs:range xsd:string .
+
+:hasMeasurementValues rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :WeatherConditions ;
+                    rdfs:range xsd:float .
+
+:hasTimestamp rdf:type owl:DatatypeProperty ;
+             rdfs:domain :WeatherConditions, :WeatherForecast, :DataObservations ;
+             rdfs:range xsd:dateTime .
+
+:hasLocation rdf:type owl:DatatypeProperty ;
+            rdfs:domain :WildfireEvent, :DataObservations, :FirefightingMission, :PopulationDensity, :InvolvedPeople ;
+            rdfs:range xsd:string .
+
+:hasClassificationType rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :SmokeClassification ;
+                    rdfs:range xsd:string .
+
+# Individuals
+:WildfireEvent1 rdf:type :WildfireEvent ;
+                :hasWeatherConditions :WeatherConditions1 ;
+                :hasWeatherForecast :WeatherForecast1 ;
+                :hasDataObservations :DataObservations1 ;
+                :hasSmokeClassification :SmokeClassification1 ;
+                :involvesVulnerableObjects :VulnerableObjects1 ;
+                :hasWildfireForestryWorks :WildfireForestryWorks1 ;
+                :hasPriority "High" ;
+                :hasUrgency "Immediate" .
+
+:WeatherConditions1 rdf:type :WeatherConditions ;
+                  :hasMeasurementValues 30.5 ;
+                  :hasTimestamp "2024-02-01T10:00:00Z"^^xsd:dateTime ;
+                  :hasLocation "Latitude: 40.123, Longitude: -120.456" .
+
+# Add more individuals and properties as needed for your specific data.
+
