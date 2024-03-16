@@ -1,0 +1,185 @@
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/> .
+@prefix : <http://example.org/wildfire#> .
+
+<http://example.org/wildfire>
+    rdf:type owl:Ontology ;
+    owl:versionInfo "1.0" .
+
+#### Expanded Classes ####
+:SearchAndRescueOperation rdf:type owl:Class .
+:RescueTeam rdf:type owl:Class .
+:MedicalSupportUnit rdf:type owl:Class .
+:RescueEquipment rdf:type owl:Class .
+:Victim rdf:type owl:Class .
+
+#### Expanded Properties ####
+:hasRescueTeam rdf:type owl:ObjectProperty ;
+    rdfs:domain :SearchAndRescueOperation ;
+    rdfs:range :RescueTeam .
+
+:hasMedicalSupport rdf:type owl:ObjectProperty ;
+    rdfs:domain :SearchAndRescueOperation ;
+    rdfs:range :MedicalSupportUnit .
+
+:usesEquipment rdf:type owl:ObjectProperty ;
+    rdfs:domain :RescueTeam ;
+    rdfs:range :RescueEquipment .
+
+:hasVictim rdf:type owl:ObjectProperty ;
+    rdfs:domain :SearchAndRescueOperation ;
+    rdfs:range :Victim .
+
+#### Example Instances for "Search and Rescue" ####
+:SearchAndRescueExample rdf:type :SearchAndRescueOperation ;
+    :hasRescueTeam :RescueTeamExample ;
+    :hasMedicalSupport :MedicalSupportUnitExample ;
+    :usesEquipment :RescueEquipmentExample ;
+    :hasVictim :VictimExample .
+
+:RescueTeamExample rdf:type :RescueTeam ;
+    rdfs:label "Example Rescue Team" .
+
+:MedicalSupportUnitExample rdf:type :MedicalSupportUnit ;
+    rdfs:label "Example Medical Support Unit" .
+
+:RescueEquipmentExample rdf:type :RescueEquipment ;
+    rdfs:label "Helicopter, Water Rescue Equipment" .
+
+:VictimExample rdf:type :Victim ;
+    rdfs:label "Individuals requiring rescue and medical attention" .
+
+#### Integration with Previous Ontology Content ####
+# (The previous ontology content would be included here as well)
+#### Classes from Previous Ontology ####
+:Wildfire rdf:type owl:Class .
+:WeatherCondition rdf:type owl:Class .
+:Observation rdf:type owl:Class .
+:Mission rdf:type owl:Class .
+:Service rdf:type owl:Class .
+:Location rdf:type owl:Class .
+:Smoke rdf:type owl:Class .
+:Infrastructure rdf:type owl:Class .
+:Population rdf:type owl:Class .
+:ForestryWork rdf:type owl:Class .
+:VulnerableObject rdf:type owl:Class .
+
+#### New Classes from Provided Ontology ####
+ex:Area rdf:type rdfs:Class .
+
+#### Properties from Previous Ontology ####
+:hasLocation rdf:type owl:ObjectProperty .
+:hasWeatherCondition rdf:type owl:ObjectProperty .
+:hasObservation rdf:type owl:ObjectProperty .
+:hasMission rdf:type owl:ObjectProperty .
+:hasService rdf:type owl:ObjectProperty .
+:hasSmokeType rdf:type owl:ObjectProperty .
+:involves rdf:type owl:ObjectProperty .
+:hasForestryWorkStatus rdf:type owl:ObjectProperty .
+
+# New Data Properties from Provided Ontology
+ex:areaSize rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+ex:equipmentCapacity rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+ex:eventDuration rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+ex:eventTime rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+ex:fireSeverity rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+#### Integration of Individuals and Axioms for Competency Questions ####
+# (Examples from the current and new ontology content would be combined here)
+#### Classes ####
+
+:Wildfire rdf:type owl:Class .
+:WeatherCondition rdf:type owl:Class .
+:Observation rdf:type owl:Class .
+:Mission rdf:type owl:Class .
+:Service rdf:type owl:Class .
+:Location rdf:type owl:Class .
+:Smoke rdf:type owl:Class .
+:Infrastructure rdf:type owl:Class .
+:Population rdf:type owl:Class .
+:ForestryWork rdf:type owl:Class .
+:VulnerableObject rdf:type owl:Class .
+
+#### Properties ####
+
+# Object Properties
+:hasLocation rdf:type owl:ObjectProperty ;
+    rdfs:range :Location .
+
+:hasWeatherCondition rdf:type owl:ObjectProperty ;
+    rdfs:range :WeatherCondition .
+
+:hasObservation rdf:type owl:ObjectProperty ;
+    rdfs:range :Observation .
+
+:hasMission rdf:type owl:ObjectProperty ;
+    rdfs:range :Mission .
+
+:hasService rdf:type owl:ObjectProperty ;
+    rdfs:range :Service .
+
+:hasSmokeType rdf:type owl:ObjectProperty ;
+    rdfs:range :Smoke .
+
+:involves rdf:type owl:ObjectProperty ;
+    rdfs:range :VulnerableObject .
+
+:hasForestryWorkStatus rdf:type owl:ObjectProperty ;
+    rdfs:range :ForestryWork .
+
+# Data Properties
+:temperature rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:float .
+
+:windSpeed rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:float .
+
+:humidity rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:float .
+
+:creationDate rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:dateTime .
+
+:populationDensity rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:int .
+
+#### Individuals and Axioms for Competency Questions ####
+
+# Adjusting axioms and adding individuals to ensure all CQs can be answered
+
+:WildfireExample rdf:type :Wildfire ;
+    :hasLocation :LocationExample ;
+    :creationDate "2023-07-15T14:30:00Z"^^xsd:dateTime .
+
+:LocationExample rdf:type :Location ;
+    rdfs:label "Specific area in Greece"^^xsd:string .
+
+:WeatherConditionExample rdf:type :WeatherCondition ;
+    :temperature "33.0"^^xsd:float ;
+    :windSpeed "20.0"^^xsd:float ;
+    :humidity "12.0"^^xsd:float .
+
+:ObservationExample rdf:type :Observation ;
+    :creationDate "2023-07-15T14:00:00Z"^^xsd:dateTime ;
+    :hasLocation :LocationExample ;
+    :hasObservationType "Satellite Imagery"^^xsd:string .
+
+:MissionExample rdf:type :Mission ;
+    :hasService :FirefightingServiceExample ;
+    :hasLocation :LocationExample .
+
+:ServiceExample rdf:type :Service ;
+    :hasMission :EvacuationMissionExample .
+
+:PopulationExample rdf:type :Population ;
+    :hasLocation :LocationExample ;
+    :populationDensity "100"^^xsd:int .
