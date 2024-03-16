@@ -1,0 +1,190 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://example.com/wildfire#> .
+
+# Main Classes
+ex:WildfireDisaster rdf:type owl:Class .
+ex:Incident rdf:type owl:Class .
+ex:WeatherCondition rdf:type owl:Class .
+ex:Observation rdf:type owl:Class .
+ex:Mission rdf:type owl:Class .
+ex:Service rdf:type owl:Class .
+
+# Sub-classes and related properties
+ex:FireSpread rdf:type owl:Class ;
+    rdfs:subClassOf ex:Incident .
+ex:InfrastructureDamage rdf:type owl:Class ;
+    rdfs:subClassOf ex:Incident .
+ex:EcologicalImpact rdf:type owl:Class ;
+    rdfs:subClassOf ex:Incident .
+ex:Temperature rdf:type owl:Class ;
+    rdfs:subClassOf ex:WeatherCondition .
+ex:WindSpeed rdf:type owl:Class ;
+    rdfs:subClassOf ex:WeatherCondition .
+ex:Humidity rdf:type owl:Class ;
+    rdfs:subClassOf ex:WeatherCondition .
+ex:SatelliteImage rdf:type owl:Class ;
+    rdfs:subClassOf ex:Observation .
+ex:SensorReading rdf:type owl:Class ;
+    rdfs:subClassOf ex:Observation .
+ex:SocialMediaPost rdf:type owl:Class ;
+    rdfs:subClassOf ex:Observation .
+ex:Firefighting rdf:type owl:Class ;
+    rdfs:subClassOf ex:Service .
+ex:SearchAndRescue rdf:type owl:Class ;
+    rdfs:subClassOf ex:Service .
+ex:Evacuation rdf:type owl:Class ;
+    rdfs:subClassOf ex:Service .
+
+# Additional Classes
+ex:Equipment rdf:type owl:Class .
+ex:GroundEquipment rdf:type owl:Class ;
+    rdfs:subClassOf ex:Equipment .
+ex:AerialEquipment rdf:type owl:Class ;
+    rdfs:subClassOf ex:Equipment .
+ex:CommunicationEquipment rdf:type owl:Class ;
+    rdfs:subClassOf ex:Equipment .
+ex:MedicalEquipment rdf:type owl:Class ;
+    rdfs:subClassOf ex:Equipment .
+ex:ResourceType rdf:type owl:Class .
+ex:SARTeam rdf:type owl:Class .
+ex:MedicalSupport rdf:type owl:Class .
+ex:BurningArea rdf:type owl:Class .
+ex:Victim rdf:type owl:Class .
+
+# Object Properties
+ex:hasLocation rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Incident ;
+    rdfs:range ex:GeographicLocation .
+ex:hasImpactOn rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Incident ;
+    rdfs:range ex:Impact .
+ex:hasWeatherCondition rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:WildfireDisaster ;
+    rdfs:range ex:WeatherCondition .
+ex:hasMeasurement rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:WeatherCondition ;
+    rdfs:range ex:Measurement .
+ex:isDepictedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Incident ;
+    rdfs:range ex:Observation .
+ex:isPerformedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Mission ;
+    rdfs:range ex:Service .
+ex:targets rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Mission ;
+    rdfs:range ex:Incident .
+ex:requires rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Mission ;
+    rdfs:range ex:Resource .
+ex:hasEquipment rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:ResourceType ;
+    rdfs:range ex:Equipment .
+ex:isMemberOf rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Victim ;
+    rdfs:range ex:SARTeam .
+ex:providesSupport rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:MedicalSupport ;
+    rdfs:range ex:Incident .
+ex:isLocatedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:BurningArea ;
+    rdfs:range ex:GeographicLocation .
+ex:affects rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:BurningArea ;
+    rdfs:range ex:Incident .
+ex:isImpactedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Incident ;
+    rdfs:range ex:BurningArea .
+ex:requiresSupport rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Incident ;
+    rdfs:range ex:MedicalSupport .
+ex:needsRescue rdf:type owl:ObjectProperty ;
+    rdfs:domain ex:Victim ;
+    rdfs:range ex:SARTeam .
+
+# Data Properties
+ex:hasDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:Observation ;
+    rdfs:range xsd:date .
+ex:hasSeverity rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:Incident ;
+    rdfs:range xsd:string .
+ex:hasValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:Measurement ;
+    rdfs:range xsd:decimal .
+ex:hasPriority rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:Mission ;
+    rdfs:range xsd:integer .
+ex:hasPopulationDensity rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:GeographicLocation ;
+    rdfs:range xsd:integer .
+ex:hasSmokeClassification rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:BurningArea ;
+    rdfs:range xsd:string .
+ex:equipmentType rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:Equipment ;
+    rdfs:range xsd:string .
+ex:fuelType rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:BurningArea ;
+    rdfs:range xsd:string .
+ex:topography rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:BurningArea ;
+    rdfs:range xsd:string .
+ex:weatherCondition rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:BurningArea ;
+    rdfs:range xsd:string .
+ex:fireBehavior rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:BurningArea ;
+    rdfs:range xsd:string .
+ex:containmentLineStatus rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:BurningArea ;
+    rdfs:range xsd:string .
+ex:victimStatus rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:Victim ;
+    rdfs:range xsd:string .
+ex:medicalNeeds rdf:type owl:DatatypeProperty ;
+    rdfs:domain ex:Victim ;
+    rdfs:range xsd:string .
+
+# Individual Examples
+ex:wildfire1 rdf:type ex:WildfireDisaster .
+ex:forestFire rdf:type ex:Incident ;
+    ex:hasLocation ex:location1 ;
+    ex:hasImpactOn ex:ecologicalImpact1 .
+ex:highTemperature rdf:type ex:Temperature ;
+    ex:hasValue "35"^^xsd:decimal .
+ex:strongWinds rdf:type ex:WindSpeed ;
+    ex:hasValue "60"^^xsd:decimal .
+ex:satelliteImage1 rdf:type ex:SatelliteImage ;
+    ex:isDepictedIn ex:forestFire ;
+    ex:hasDate "2024-02-01"^^xsd:date .
+ex:firefightingMission rdf:type ex:Mission ;
+    ex:isPerformedBy ex:fireDepartment1 ;
+    ex:targets ex:forestFire ;
+    ex:hasPriority "2"^^xsd:integer .
+
+# Additional Individuals
+ex:waterPump rdf:type ex:GroundEquipment ;
+    ex:equipmentType "water pump" .
+ex:drone rdf:type ex:AerialEquipment ;
+    ex:equipmentType "drone" .
+ex:usarTeam1 rdf:type ex:SARTeam ;
+    ex:hasLocation ex:location2 .
+ex:medicalCenter1 rdf:type ex:MedicalSupport ;
+    ex:hasLocation ex:location3 .
+ex:burningArea1 rdf:type ex:BurningArea ;
+    ex:isLocatedIn ex:forest1 ;
+    ex:fuelType "pine forest" ;
+    ex:topography "steep slopes" ;
+    ex:weatherCondition "dry and windy" ;
+    ex:fireBehavior "fast spreading" ;
+    ex:containmentLineStatus "incomplete" .
+ex:injuredVictim1 rdf:type ex:Victim ;
+    ex:isLocatedIn ex:burningArea1 ;
+    ex:victimStatus "injured" ;
+    ex:medicalNeeds "burns, smoke inhalation" ;
+    ex:needsRescue ex:usarTeam1 .
+
+
+
