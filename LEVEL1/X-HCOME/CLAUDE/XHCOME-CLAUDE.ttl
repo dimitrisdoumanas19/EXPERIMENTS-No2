@@ -1,0 +1,237 @@
+@prefix : <http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16> .
+
+<http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#affectsInfrastructure
+:affectsInfrastructure rdf:type owl:ObjectProperty ;
+                      rdfs:domain :WildfireIncident ;
+                      rdfs:range :Infrastructure .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasAirSupport
+:hasAirSupport rdf:type owl:ObjectProperty ;
+              rdfs:domain :SAR_Mission ;
+              rdfs:range :AirSupport .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasCause
+:hasCause rdf:type owl:ObjectProperty ;
+         rdfs:domain :WildfireIncident ;
+         rdfs:range :CauseOfFire .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasData
+:hasData rdf:type owl:ObjectProperty ;
+        rdfs:domain :EarthObservation ,
+                    :HumanObservation ;
+        rdfs:range :ObservationData .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasEcologicalImpact
+:hasEcologicalImpact rdf:type owl:ObjectProperty ;
+                    rdfs:domain :WildfireIncident ;
+                    rdfs:range :EcologicalImpact .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasEquipment
+:hasEquipment rdf:type owl:ObjectProperty ;
+             rdfs:domain :SAR_Mission ;
+             rdfs:range :Equipment .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasFireFightingService
+:hasFireFightingService rdf:type owl:ObjectProperty ;
+                       rdfs:domain :SAR_Mission ;
+                       rdfs:range :FireFightingService .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasFireFightingTeam
+:hasFireFightingTeam rdf:type owl:ObjectProperty ;
+                    rdfs:domain :SAR_Mission ;
+                    rdfs:range :FireFightingTeam .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasLocation
+:hasLocation rdf:type owl:ObjectProperty ;
+            rdfs:domain :WildfireIncident ,
+                        :SAR_Mission ;
+            rdfs:range :Location .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasObservation
+:hasObservation rdf:type owl:ObjectProperty ;
+               rdfs:domain :WildfireIncident ;
+               rdfs:range :EarthObservation ,
+                           :HumanObservation .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasPopulationDensity
+:hasPopulationDensity rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Location ;
+                     rdfs:range :PopulationDensity .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasRescueTeam
+:hasRescueTeam rdf:type owl:ObjectProperty ;
+              rdfs:domain :SAR_Mission ;
+              rdfs:range :RescueTeam .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasStatus
+:hasStatus rdf:type owl:ObjectProperty ;
+          rdfs:domain :WildfireForestryWorks ;
+          rdfs:range :Status .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasWeatherCondition
+:hasWeatherCondition rdf:type owl:ObjectProperty ;
+                    rdfs:domain :WildfireIncident ;
+                    rdfs:range :WeatherCondition .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#involvesEmergencyService
+:involvesEmergencyService rdf:type owl:ObjectProperty ;
+                         rdfs:domain :SAR_Mission ;
+                         rdfs:range :EmergencyService .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#involvesPersonnel
+:involvesPersonnel rdf:type owl:ObjectProperty ;
+                  rdfs:domain :EmergencyService ,
+                              :FireFightingTeam ,
+                              :RescueTeam ;
+                  rdfs:range :Personnel .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#isLocatedAt
+:isLocatedAt rdf:type owl:ObjectProperty ;
+            rdfs:domain :Personnel ,
+                        :VulnerableObject ;
+            rdfs:range :Location .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#monitors
+:monitors rdf:type owl:ObjectProperty ;
+         rdfs:domain :EarthObservation ,
+                     :HumanObservation ;
+         rdfs:range :WildfireIncident .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#observesSmoke
+:observesSmoke rdf:type owl:ObjectProperty ;
+              rdfs:domain :EarthObservation ,
+                          :HumanObservation ;
+              rdfs:range :Smoke .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasAltitude
+:hasAltitude rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Location ;
+            rdfs:range xsd:double .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasCreationDate
+:hasCreationDate rdf:type owl:DatatypeProperty ;
+                rdfs:domain :ObservationData ;
+                rdfs:range xsd:dateTime .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasLatitude
+:hasLatitude rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Location ;
+            rdfs:range xsd:double .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasLongitude
+:hasLongitude rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Location ;
+             rdfs:range xsd:double .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasPriority
+:hasPriority rdf:type owl:DatatypeProperty ;
+            rdfs:domain :WildfireIncident ;
+            rdfs:range xsd:string .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasSmokeDensity
+:hasSmokeDensity rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Smoke ;
+                rdfs:range xsd:string .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasTemperature
+:hasTemperature rdf:type owl:DatatypeProperty ;
+               rdfs:domain :WeatherCondition ;
+               rdfs:range xsd:double .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#hasWindSpeed
+:hasWindSpeed rdf:type owl:DatatypeProperty ;
+             rdfs:domain :WeatherCondition ;
+             rdfs:range xsd:double .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#AirSupport
+:AirSupport rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#CauseOfFire
+:CauseOfFire rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#EarthObservation
+:EarthObservation rdf:type owl:Class ;
+                 rdfs:subClassOf :Observation .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#EcologicalImpact
+:EcologicalImpact rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#EmergencyService
+:EmergencyService rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#Equipment
+:Equipment rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#FireFightingService
+:FireFightingService rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#FireFightingTeam
+:FireFightingTeam rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#HumanObservation
+:HumanObservation rdf:type owl:Class ;
+                 rdfs:subClassOf :Observation .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#Infrastructure
+:Infrastructure rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#Location
+:Location rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#Observation
+:Observation rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#ObservationData
+:ObservationData rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#Personnel
+:Personnel rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#PopulationDensity
+:PopulationDensity rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#RescueTeam
+:RescueTeam rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#SAR_Mission
+:SAR_Mission rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#Smoke
+:Smoke rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#Status
+:Status rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#VulnerableObject
+:VulnerableObject rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#WeatherCondition
+:WeatherCondition rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#WildfireForestryWorks
+:WildfireForestryWorks rdf:type owl:Class .
+
+###  http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#WildfireIncident
+:WildfireIncident rdf:type owl:Class .
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -1,0 +1,261 @@
+@prefix : <http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16> .
+
+<http://www.semanticweb.org/ontologies/2023/5/untitled-ontology-16> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+:affectsInfrastructure rdf:type owl:ObjectProperty ;
+                       rdfs:domain :WildfireIncident ;
+                       rdfs:range :Infrastructure .
+
+:hasAirSupport rdf:type owl:ObjectProperty ;
+               rdfs:domain :SAR_Mission ;
+               rdfs:range :AirSupport .
+
+:hasCause rdf:type owl:ObjectProperty ;
+          rdfs:domain :WildfireIncident ;
+          rdfs:range :CauseOfFire .
+
+:hasData rdf:type owl:ObjectProperty ;
+         rdfs:domain :EarthObservation ,
+                     :HumanObservation ;
+         rdfs:range :ObservationData .
+
+:hasEcologicalImpact rdf:type owl:ObjectProperty ;
+                     rdfs:domain :WildfireIncident ;
+                     rdfs:range :EcologicalImpact .
+
+:hasEquipment rdf:type owl:ObjectProperty ;
+              rdfs:domain :SAR_Mission ;
+              rdfs:range :Equipment .
+
+:hasFireFightingService rdf:type owl:ObjectProperty ;
+                        rdfs:domain :SAR_Mission ;
+                        rdfs:range :FireFightingService .
+
+:hasFireFightingTeam rdf:type owl:ObjectProperty ;
+                     rdfs:domain :SAR_Mission ;
+                     rdfs:range :FireFightingTeam .
+
+:hasLocation rdf:type owl:ObjectProperty ;
+             rdfs:domain :WildfireIncident ,
+                         :SAR_Mission ;
+             rdfs:range :Location .
+
+:hasObservation rdf:type owl:ObjectProperty ;
+                rdfs:domain :WildfireIncident ;
+                rdfs:range :EarthObservation ,
+                           :HumanObservation .
+
+:hasPopulationDensity rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Location ;
+                      rdfs:range :PopulationDensity .
+
+:hasRescueTeam rdf:type owl:ObjectProperty ;
+               rdfs:domain :SAR_Mission ;
+               rdfs:range :RescueTeam .
+
+:hasStatus rdf:type owl:ObjectProperty ;
+           rdfs:domain :WildfireForestryWorks ;
+           rdfs:range :Status .
+
+:hasWeatherCondition rdf:type owl:ObjectProperty ;
+                     rdfs:domain :WildfireIncident ;
+                     rdfs:range :WeatherCondition .
+
+:involvesEmergencyService rdf:type owl:ObjectProperty ;
+                          rdfs:domain :SAR_Mission ;
+                          rdfs:range :EmergencyService .
+
+:involvesPersonnel rdf:type owl:ObjectProperty ;
+                   rdfs:domain :EmergencyService ,
+                               :FireFightingTeam ,
+                               :RescueTeam ;
+                   rdfs:range :Personnel .
+
+:isLocatedAt rdf:type owl:ObjectProperty ;
+             rdfs:domain :Personnel ,
+                         :VulnerableObject ;
+             rdfs:range :Location .
+
+:monitors rdf:type owl:ObjectProperty ;
+          rdfs:domain :EarthObservation ,
+                      :HumanObservation ;
+          rdfs:range :WildfireIncident .
+
+:observesSmoke rdf:type owl:ObjectProperty ;
+               rdfs:domain :EarthObservation ,
+                           :HumanObservation ;
+               rdfs:range :Smoke .
+
+:hasEvacuationPlan rdf:type owl:ObjectProperty ;
+                   rdfs:domain :WildfireIncident ;
+                   rdfs:range :EvacuationPlan .
+
+:usesEvacuationRoute rdf:type owl:ObjectProperty ;
+                     rdfs:domain :EvacuationPlan ;
+                     rdfs:range :EvacuationRoute .
+
+:involvesFuelType rdf:type owl:ObjectProperty ;
+                  rdfs:domain :WildfireIncident ;
+                  rdfs:range :FuelType .
+
+:hasAccessibilityInfo rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Location ;
+                      rdfs:range :AccessibilityInformation .
+
+:requiresAccessibility rdf:type owl:ObjectProperty ;
+                       rdfs:domain :SAR_Mission ;
+                       rdfs:range :AccessibilityInformation .
+
+#################################################################
+#    Data properties
+#################################################################
+
+:hasAltitude rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Location ;
+             rdfs:range xsd:double .
+
+:hasCreationDate rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :ObservationData ;
+                 rdfs:range xsd:dateTime .
+
+:hasLatitude rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Location ;
+             rdfs:range xsd:double .
+
+:hasLongitude rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Location ;
+              rdfs:range xsd:double .
+
+:hasPriority rdf:type owl:DatatypeProperty ;
+             rdfs:domain :WildfireIncident ;
+             rdfs:range xsd:string .
+
+:hasSmokeDensity rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Smoke ;
+                 rdfs:range xsd:string .
+
+:hasTemperature rdf:type owl:DatatypeProperty ;
+                rdfs:domain :WeatherCondition ;
+                rdfs:range xsd:double .
+
+:hasWindSpeed rdf:type owl:DatatypeProperty ;
+              rdfs:domain :WeatherCondition ;
+              rdfs:range xsd:double .
+
+:hasFireIntensity rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :FireBehavior ;
+                  rdfs:range xsd:string .
+
+:hasRateOfSpread rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :FireBehavior ;
+                 rdfs:range xsd:double .
+
+:hasSpreadDirection rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :FireBehavior ;
+                    rdfs:range xsd:string .
+
+:hasTerrainDifficulty rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :AccessibilityInformation ;
+                      rdfs:range xsd:string .
+
+#################################################################
+#    Classes
+#################################################################
+
+:AirSupport rdf:type owl:Class .
+
+:CauseOfFire rdf:type owl:Class .
+
+:EarthObservation rdf:type owl:Class ;
+                  rdfs:subClassOf :Observation .
+
+:EcologicalImpact rdf:type owl:Class .
+
+:EmergencyService rdf:type owl:Class .
+
+:Equipment rdf:type owl:Class .
+
+:FireFightingService rdf:type owl:Class .
+
+:FireFightingTeam rdf:type owl:Class .
+
+:HumanObservation rdf:type owl:Class ;
+                  rdfs:subClassOf :Observation .
+
+:Infrastructure rdf:type owl:Class .
+
+:Location rdf:type owl:Class .
+
+:Observation rdf:type owl:Class .
+
+:ObservationData rdf:type owl:Class .
+
+:Personnel rdf:type owl:Class .
+
+:PopulationDensity rdf:type owl:Class .
+
+:RescueTeam rdf:type owl:Class .
+
+:SAR_Mission rdf:type owl:Class .
+
+:Smoke rdf:type owl:Class .
+
+:Status rdf:type owl:Class .
+
+:VulnerableObject rdf:type owl:Class .
+
+:WeatherCondition rdf:type owl:Class .
+
+:WildfireForestryWorks rdf:type owl:Class .
+
+:WildfireIncident rdf:type owl:Class .
+
+:EvacuationPlan rdf:type owl:Class .
+
+:EvacuationRoute rdf:type owl:Class .
+
+:FireBehavior rdf:type owl:Class .
+
+:FuelType rdf:type owl:Class .
+
+:AccessibilityInformation rdf:type owl:Class .
+
+:FireSuppression rdf:type owl:Class ;
+                 rdfs:comment "Class representing fire suppression activities and strategies." .
+
+:FireLineConstruction rdf:type owl:Class ;
+                      rdfs:comment "Class representing construction of fire lines to control the spread of wildfires." .
+
+:FireBreak rdf:type owl:Class ;
+           rdfs:comment "Class representing natural or artificial barriers used to stop or slow the spread of wildfires." .
+
+:WaterSource rdf:type owl:Class ;
+             rdfs:comment "Class representing sources of water used for fire suppression activities." .
+
+:MedicalFacility rdf:type owl:Class ;
+                 rdfs:comment "Class representing medical facilities used for treating injuries during SAR missions." .
+
+:CommunicationSystem rdf:type owl:Class ;
+                     rdfs:comment "Class representing communication systems used for coordinating SAR missions." .
+
+:MappingTool rdf:type owl:Class ;
+             rdfs:comment "Class representing mapping tools used for tracking and planning SAR missions." .
+
+:SafetyEquipment rdf:type owl:Class ;
+                 rdfs:comment "Class representing safety equipment used by personnel during SAR missions." .
+
+:WildfireRisk rdf:type owl:Class ;
+              rdfs:comment "Class representing the risk level of a wildfire incident based on various factors." .
+
+:EvacuationCenter rdf:type owl:Class ;
+                  rdfs:comment "Class representing designated evacuation centers for people affected by wildfires." .
